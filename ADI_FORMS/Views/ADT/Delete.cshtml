@@ -1,0 +1,74 @@
+﻿@model ADI_FORMS.Models.AssetsDisposalData
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Assets Disposal Data</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FixedAsset.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FixedAsset.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DisposalDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DisposalDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DisposedValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DisposedValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Recipient)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Recipient)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+    }
+    </div>
+</div>

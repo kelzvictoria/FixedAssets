@@ -1,0 +1,129 @@
+﻿@model ADI_FORMS.Models.AssetsValuationDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>AssetsValuationDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                @Html.DisplayNameFor(model => model.DepreciationMTD.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DepreciationMTD.Name)
+            </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FixedAsset.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FixedAsset.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastValDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastValDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Eff_Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Eff_Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprMethod)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprMethod)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewLifeSpan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewLifeSpan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewResidual)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewResidual)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprStartDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprStartDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprRate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprRate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstSalesValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstSalesValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprToDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprToDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprYearToDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprYearToDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDeprAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NewDeprAmount)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+    }
+    </div>
+</div>

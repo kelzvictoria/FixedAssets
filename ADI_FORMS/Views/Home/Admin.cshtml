@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>Admin Dashboard</h2>
+    <div class="admin-btn">
+        <span>@Html.ActionLink("Assets Usage Log", "Index", "AUL", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Maintenance Details", "Index", "AMD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Valuation Details", "Index", "AVD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Insurance Premium", "Index", "AID", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Inspection Details", "Index", "AINSPD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Asset Transfer Info", "Index", "ATD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Disposal Details", "Index", "ADT", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Company Registration", "Index", "Companies", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+
+        <span>@Html.ActionLink("Customer Registration", "Index", "Vendors", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })</span>
+    </div><br/><br/>
+    <div class="assets-tbl">
+        <table id="assetslist" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Asset Description</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Branch</th>
+                    <th>Present Value</th>
+                    <th>Company</th>
+                    <th>Serial No.</th>
+                    <th>Model  No.</th>
+                    <th>Year_Manuf.</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+    wow = new WOW(
+        {
+            boxClass: 'wow',      // default
+            animateClass: 'animated', // default
+            offset: 0          // default
+        }
+    )
+    wow.init();
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        var table = $("#assetslist").DataTable(
+             {
+                 ajax: {
+                     url: "/api/fa",
+                     dataSrc: ""
+                 },
+
+                 columns: [
+                     {
+                         data: "description",
+                         render: function (data, type, fixedAsset) {
+                             return "<a href= '/FA/edit/" + fixedAsset.id + "'>" + fixedAsset.description + "</a>";
+                         }
+
+                     },
+                     {
+                         data: "category.name"
+
+                     },
+
+                     {
+                         data: "location.name"
+
+                     },
+
+                     {
+                         data: "branch.name"
+
+                     },
+
+                     {
+                         data: "presentValue"
+
+                     },
+                     {
+                        data: "company.name"
+                     },
+                     {
+                         data: "serialNo"
+
+                     },
+                     {
+                         data: "model"
+
+                     },
+
+                     {
+                         data: "yearOfManufacture"
+
+                     },
+                     {
+                         data: "id",
+                         render: function (data, type, ass) {
+                             return "<a href='/fa/delete/" + ass.id + "'>Delete" + "</a>";
+                         }
+                     }
+                 ]
+             });
+    });
+    </script>
+}
+

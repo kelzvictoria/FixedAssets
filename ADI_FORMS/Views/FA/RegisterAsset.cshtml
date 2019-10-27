@@ -1,0 +1,582 @@
+﻿@model ADI_FORMS.ViewModels.RegisterAssetViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "FA", new { id = "fa" }))
+   {
+       
+    @Html.Partial("_BreadCrumb")
+
+    <div class="container">
+
+        <div class="row mar-b-60">
+            <div class="col-lg-12">
+                <!--tab start-->
+                <section class="tab wow fadeInLeft">
+                    <header class="panel-heading tab-bg-dark-navy-blue">
+                        <ul class="nav nav-tabs nav-justified ">
+                            <li class="active">
+                                <a data-toggle="tab" href="#reg">
+                                    Assets Information
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#depr">
+                                    Depreciation Details
+                                </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#img">
+                                    Image/Comments
+                                </a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#list">
+                                    List
+                                </a>
+                            </li>
+                        </ul>
+                    </header>
+                    <div class="panel-body">
+                        <div class="tab-content tasi-tab">
+                            <div id="reg" class="tab-pane fade in active">
+                                <div class="row justify-content-center">
+                                    <div class="media-container-column col-lg-12">
+                                        <div class="row row-sm-offset">
+                                            @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    <label>Asset No.</label>
+                                                    <input type="text" class="form-control lookup" data-target="#addEditUser" data-toggle="modal" name="LOOKUP" />
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.Description)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.Description, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.Description)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.CategoryId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Asset Category", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.CategoryId)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.BranchId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.BranchId, new SelectList(Model.Branches, "Id", "Name"), "Select Branch", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.BranchId)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.LocationId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.LocationId, new SelectList(Model.Locations, "Id", "Name"), "Select Location", new { @class = "form-control dro" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.LocationId)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.StaffAssigned)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.StaffAssigned, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.StaffAssigned)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.InitialCost)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.InitialCost, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.InitialCost)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.AssetStatusId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.AssetStatusId, new SelectList(Model.AssetStatus, "Id", "Name"), "Select Status", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.AssetStatusId)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.SerialNo)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.SerialNo, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.SerialNo)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.PurchasesOrderNo)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.PurchasesOrderNo, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.PurchasesOrderNo)
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.Model)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.Model, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.Model)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.PurchaseRecptNo)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.PurchaseRecptNo, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.PurchaseRecptNo)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.VendorId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.VendorId, new SelectList(Model.Vendors, "Id", "Name"), "Select Vendor", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.VendorId)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.YearOfManufacture)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.YearOfManufacture, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.YearOfManufacture)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.PurchasedDate)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.PurchasedDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.PurchasedDate)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.AssetAccountNo)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.AssetAccountNo, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FixedAsset.AssetAccountNo)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.EngineNo)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.EngineNo, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.MaintenanceFigure)
+                                                    @Html.TextBoxFor(m => m.FixedAsset.MaintenanceFigure, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.AssetMaintenanceIntervalId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.AssetMaintenanceIntervalId, new SelectList(Model.AssetMaintenanceIntervals, "Id", "Name"), "Select Interval", new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAsset.CompanyId)
+                                                    @Html.DropDownListFor(m => m.FixedAsset.CompanyId, new SelectList(Model.Companies, "Id", "Name"), "Select Company", new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                            
+                                            <br />
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                        @Html.HiddenFor(m => m.FixedAsset.Id)
+                                                        <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="depr" class="tab-pane fade">
+
+                                @Html.ValidationSummary(true, "Please fix the following errors.")
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.PresentValue)
+                                        @Html.TextBoxFor(m => m.FixedAsset.PresentValue, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.PresentValue)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DateRegistered)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DateRegistered, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DateRegistered)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.LastValuationDate)
+                                        @Html.TextBoxFor(m => m.FixedAsset.LastValuationDate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.LastValuationDate)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DeprIntervalId)
+                                        @Html.DropDownListFor(m => m.FixedAsset.DeprIntervalId, new SelectList(Model.DeprIntervals, "Id", "Name"), "Select Interval", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DeprIntervalId)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.LifeSpan)
+                                        @Html.TextBoxFor(m => m.FixedAsset.LifeSpan, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.LifeSpan)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.MonthsId)
+                                        @Html.DropDownListFor(m => m.FixedAsset.MonthsId, new SelectList(Model.Months, "Id", "Name"), "Select Month", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.MonthsId)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.LastDeprYear)
+                                        @Html.TextBoxFor(m => m.FixedAsset.LastDeprYear, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.LastDeprYear)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.Residual)
+                                        @Html.TextBoxFor(m => m.FixedAsset.Residual, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.Residual)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.AnnualDeprAmount)
+                                        @Html.TextBoxFor(m => m.FixedAsset.AnnualDeprAmount, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.AnnualDeprAmount)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DeprCommenced)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DeprCommenced, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DeprCommenced)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DeprEndDate)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DeprEndDate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DeprEndDate)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.LastDeprAmt)
+                                        @Html.TextBoxFor(m => m.FixedAsset.LastDeprAmt, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.LastDeprAmt)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.LastDeprDate)
+                                        @Html.TextBoxFor(m => m.FixedAsset.LastDeprDate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.LastDeprDate)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DepreciationMTDId)
+                                        @Html.DropDownListFor(m => m.FixedAsset.DepreciationMTDId, new SelectList(Model.DepreciationMTDs, "Id", "Name"), "Select Methods", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DepreciationMTDId)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DeprYTD)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DeprYTD, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DeprYTD)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DepreciationRate)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DepreciationRate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DepreciationRate)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.DeprToDate)
+                                        @Html.TextBoxFor(m => m.FixedAsset.DeprToDate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.DeprToDate)
+                                    </div>
+                                </div>
+                                <div class="col-md-4 multi-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FixedAsset.CurrentYear)
+                                        @Html.TextBoxFor(m => m.FixedAsset.CurrentYear, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FixedAsset.CurrentYear)
+                                    </div>
+                                </div>
+                          <br />
+
+                                <div class="col-md-6 multi-horizontal">
+                                    <div class="form-group">
+
+                                        @Html.HiddenFor(m => m.FixedAsset.Id)
+                                        <button id ="savebtn"type="submit" class="btn btn-info .js-save">Save</button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="list" class="tab-pane fade pre-scrollable" style="max-height:550px;" >
+
+                                <table id="assetslist" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Asset Description</th>
+                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Branch</th>
+                                            <th>Cost</th>
+                                            <th>Present Value</th>
+                                            <th>Company</th>
+                                            <th>Serial No.</th>
+                                            <th>Model  No.</th>
+                                            <th>Year_Manuf.</th>
+                                            <th>Depr. Rate</th>
+                                            <th>Depr. To Date</th>
+
+                                            <th>Engine No.</th>
+                                            <th>Chassis No.</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div id="img" class="tab-pane fade">
+                                <div class="col-md-4">
+                                    <div>
+                                        <div>
+                                            <img alt="" src="~/THEME/img/img.PNG">
+                                        </div>
+                                        <br />
+                                        <input type="file" name="img" />
+                                        <br /><br />
+                                        <span><input type="submit" class="btn btn-info" value="upload" /></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Comments</label>
+                                        <textarea type="text" class="form-control" style="height:190px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--tab end-->
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="addEditUser" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Registered Assets</h4>
+                </div>
+                <div class="modal-body">
+                    @* The body of the edit and save dialog comes here *@
+                    <table id="assetslookup" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Asset Description</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   }
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+<script>
+    wow = new WOW(
+        {
+            boxClass: 'wow',      // default
+            animateClass: 'animated', // default
+            offset: 0          // default
+        }
+    )
+    wow.init();
+</script>
+
+<script>
+    $(document).ready(function () {
+        var table = $("#assetslist").DataTable(
+             {
+                 ajax: {
+                     url: "/api/fa",
+                     dataSrc: ""
+                 },
+
+                 columns: [
+                     {
+                         data: "description"
+                         
+                     },
+                     {
+                         data: "category.name"
+                         
+                     },
+
+                     {
+                         data: "location.name"
+
+                     },
+
+                     {
+                         data: "branch.name"
+
+                     },
+                     {
+                         data: "initialCost"
+                     },
+
+                     {
+                         data: "presentValue"
+
+                     },
+                     {
+                        data: "company.name"
+                     },
+                     {
+                         data: "serialNo"
+
+                     },
+                     {
+                         data: "model"
+
+                     },
+
+                     {
+                         data: "yearOfManufacture"
+
+                     },
+                     {
+                         data: "depreciationRate"
+                     },
+
+                     {
+                         data: "deprToDate"
+
+                     },
+                     {
+                         data: "engineNo"
+                     },
+                     {
+                         data: "classicNo"
+                     }
+                 ]
+             });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var table = $("#assetslookup").DataTable(
+             {
+                 ajax: {
+                     url: "/api/fa",
+                     dataSrc: ""
+                 },
+
+                 columns: [
+                     {
+                         data: "description",
+                         render: function (data, type, fixedAsset) {
+                             return "<a href= '/FA/edit/" + fixedAsset.id + "'>" + fixedAsset.description + "</a>";
+                         }
+
+                     },
+                     {
+                         data: "category.name"
+
+                     },
+
+                     {
+                         data: "location.name"
+
+                     },
+
+                     {
+                         data: "branch.name"
+
+                     }
+                 ]
+             });
+    });
+    </script>
+
+
+@*<script src="~/Scripts/bootbox.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+<script src="~/THEME/bootbox.4.3.0/content/Scripts/bootbox.min.js"></script>
+<script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+<script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/jquery.dataTables.min.js"></script>*@
+
+  
+}
+

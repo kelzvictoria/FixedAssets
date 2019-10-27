@@ -1,0 +1,9 @@
+﻿@model ADI_FORMS.ViewModels.RegisterAssetViewModel
+
+<div class="col-md-4 multi-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.FixedAsset.BranchId)
+        @Html.DropDownListFor(m => m.FixedAsset.BranchId, new SelectList(Model.Branches, "Id", "Name"), "Select Branch", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FixedAsset.BranchId)
+    </div>
+</div>

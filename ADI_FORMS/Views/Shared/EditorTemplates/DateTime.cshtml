@@ -1,0 +1,18 @@
+﻿@model DateTime?
+    
+@Html.TextBox("", (Model.HasValue ?
+    Model.Value.ToShortDateString() : string.Empty),
+    new { @class = "datePicker", @readonly = "readonly" })
+
+@section Scripts{
+<script>
+    $(".datePicker").datepicker(
+        {
+            showOn: "button",
+            gotoCurrent: true,
+            showAnim: 'fold',
+            buttonImage: "/Content/icon-calendar.svg",
+            buttonImageOnly: true
+        })
+</script>
+}

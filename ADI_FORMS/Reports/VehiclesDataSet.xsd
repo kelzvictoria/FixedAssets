@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VehiclesDataSet" targetNamespace="http://tempuri.org/VehiclesDataSet.xsd" xmlns:mstns="http://tempuri.org/VehiclesDataSet.xsd" xmlns="http://tempuri.org/VehiclesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="FAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.FAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VEHICLESVIEWTableAdapter" GeneratorDataComponentClassName="VEHICLESVIEWTableAdapter" Name="VEHICLESVIEW" UserDataComponentName="VEHICLESVIEWTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FAConnectionString (Web.config)" DbObjectName="[aspnet-ADI_FORMS-20190421120836].dbo.VEHICLESVIEW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Description, Model, SerialNo, Location, InitialCost, PresentValue, Status, PurchasedDate, EngineNo, ClassicNo, Company FROM VEHICLESVIEW</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="SerialNo" DataSetColumn="SerialNo" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="InitialCost" DataSetColumn="InitialCost" />
+              <Mapping SourceColumn="PresentValue" DataSetColumn="PresentValue" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="PurchasedDate" DataSetColumn="PurchasedDate" />
+              <Mapping SourceColumn="EngineNo" DataSetColumn="EngineNo" />
+              <Mapping SourceColumn="ClassicNo" DataSetColumn="ClassicNo" />
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VehiclesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="VehiclesDataSet" msprop:Generator_UserDSName="VehiclesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VEHICLESVIEW" msprop:Generator_TableClassName="VEHICLESVIEWDataTable" msprop:Generator_TableVarName="tableVEHICLESVIEW" msprop:Generator_RowChangedName="VEHICLESVIEWRowChanged" msprop:Generator_TablePropName="VEHICLESVIEW" msprop:Generator_RowDeletingName="VEHICLESVIEWRowDeleting" msprop:Generator_RowChangingName="VEHICLESVIEWRowChanging" msprop:Generator_RowEvHandlerName="VEHICLESVIEWRowChangeEventHandler" msprop:Generator_RowDeletedName="VEHICLESVIEWRowDeleted" msprop:Generator_RowClassName="VEHICLESVIEWRow" msprop:Generator_UserTableName="VEHICLESVIEW" msprop:Generator_RowEvArgName="VEHICLESVIEWRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SerialNo" msprop:Generator_ColumnVarNameInTable="columnSerialNo" msprop:Generator_ColumnPropNameInRow="SerialNo" msprop:Generator_ColumnPropNameInTable="SerialNoColumn" msprop:Generator_UserColumnName="SerialNo" type="xs:long" minOccurs="0" />
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InitialCost" msprop:Generator_ColumnVarNameInTable="columnInitialCost" msprop:Generator_ColumnPropNameInRow="InitialCost" msprop:Generator_ColumnPropNameInTable="InitialCostColumn" msprop:Generator_UserColumnName="InitialCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PresentValue" msprop:Generator_ColumnVarNameInTable="columnPresentValue" msprop:Generator_ColumnPropNameInRow="PresentValue" msprop:Generator_ColumnPropNameInTable="PresentValueColumn" msprop:Generator_UserColumnName="PresentValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchasedDate" msprop:Generator_ColumnVarNameInTable="columnPurchasedDate" msprop:Generator_ColumnPropNameInRow="PurchasedDate" msprop:Generator_ColumnPropNameInTable="PurchasedDateColumn" msprop:Generator_UserColumnName="PurchasedDate" type="xs:dateTime" />
+              <xs:element name="EngineNo" msprop:Generator_ColumnVarNameInTable="columnEngineNo" msprop:Generator_ColumnPropNameInRow="EngineNo" msprop:Generator_ColumnPropNameInTable="EngineNoColumn" msprop:Generator_UserColumnName="EngineNo" type="xs:long" minOccurs="0" />
+              <xs:element name="ClassicNo" msprop:Generator_ColumnVarNameInTable="columnClassicNo" msprop:Generator_ColumnPropNameInRow="ClassicNo" msprop:Generator_ColumnPropNameInTable="ClassicNoColumn" msprop:Generator_UserColumnName="ClassicNo" type="xs:long" minOccurs="0" />
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

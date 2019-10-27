@@ -1,0 +1,8 @@
+﻿@model ADI_FORMS.ViewModels.RegisterAssetViewModel
+
+<div class="col-md-4 multi-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.FixedAsset.CompanyId)
+        @Html.DropDownListFor(m => m.FixedAsset.CompanyId, new SelectList(Model.Companies, "Id", "Name"), "Select Company", new { @class = "form-control" })
+    </div>
+</div>

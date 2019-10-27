@@ -1,0 +1,71 @@
+﻿@model ADI_FORMS.Models.AssetsTransferData
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>AssetsTransferData</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FixedAssetId, "Asset", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("FixedAssetId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.FixedAssetId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewLocation)
+                    @Html.ValidationMessageFor(model => model.NewLocation)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewCompany, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewCompany)
+                    @Html.ValidationMessageFor(model => model.NewCompany)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NewBranch, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NewBranch)
+                    @Html.ValidationMessageFor(model => model.NewBranch)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TransferDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TransferDate)
+                    @Html.ValidationMessageFor(model => model.TransferDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

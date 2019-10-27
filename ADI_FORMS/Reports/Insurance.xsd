@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Insurance" targetNamespace="http://tempuri.org/Insurance.xsd" xmlns:mstns="http://tempuri.org/Insurance.xsd" xmlns="http://tempuri.org/Insurance.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="FAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.FAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InsuranceViewTableAdapter" GeneratorDataComponentClassName="InsuranceViewTableAdapter" Name="InsuranceView" UserDataComponentName="InsuranceViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FAConnectionString (Web.config)" DbObjectName="[aspnet-ADI_FORMS-20190421120836].dbo.InsuranceView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        InsuranceView.*
+FROM            InsuranceView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="InsuranceCompany" DataSetColumn="InsuranceCompany" />
+              <Mapping SourceColumn="PremiumPayable" DataSetColumn="PremiumPayable" />
+              <Mapping SourceColumn="Interval" DataSetColumn="Interval" />
+              <Mapping SourceColumn="InsuredValue" DataSetColumn="InsuredValue" />
+              <Mapping SourceColumn="InsurancePremium" DataSetColumn="InsurancePremium" />
+              <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
+              <Mapping SourceColumn="PremiumToDate" DataSetColumn="PremiumToDate" />
+              <Mapping SourceColumn="DateFirstInsured" DataSetColumn="DateFirstInsured" />
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="PayMode" DataSetColumn="PayMode" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Insurance" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Insurance" msprop:Generator_UserDSName="Insurance">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InsuranceView" msprop:Generator_TableClassName="InsuranceViewDataTable" msprop:Generator_TableVarName="tableInsuranceView" msprop:Generator_TablePropName="InsuranceView" msprop:Generator_RowDeletingName="InsuranceViewRowDeleting" msprop:Generator_RowChangingName="InsuranceViewRowChanging" msprop:Generator_RowEvHandlerName="InsuranceViewRowChangeEventHandler" msprop:Generator_RowDeletedName="InsuranceViewRowDeleted" msprop:Generator_UserTableName="InsuranceView" msprop:Generator_RowChangedName="InsuranceViewRowChanged" msprop:Generator_RowEvArgName="InsuranceViewRowChangeEvent" msprop:Generator_RowClassName="InsuranceViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsuranceCompany" msprop:Generator_ColumnVarNameInTable="columnInsuranceCompany" msprop:Generator_ColumnPropNameInRow="InsuranceCompany" msprop:Generator_ColumnPropNameInTable="InsuranceCompanyColumn" msprop:Generator_UserColumnName="InsuranceCompany">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PremiumPayable" msprop:Generator_ColumnVarNameInTable="columnPremiumPayable" msprop:Generator_ColumnPropNameInRow="PremiumPayable" msprop:Generator_ColumnPropNameInTable="PremiumPayableColumn" msprop:Generator_UserColumnName="PremiumPayable" type="xs:decimal" />
+              <xs:element name="Interval" msprop:Generator_ColumnVarNameInTable="columnInterval" msprop:Generator_ColumnPropNameInRow="Interval" msprop:Generator_ColumnPropNameInTable="IntervalColumn" msprop:Generator_UserColumnName="Interval">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InsuredValue" msprop:Generator_ColumnVarNameInTable="columnInsuredValue" msprop:Generator_ColumnPropNameInRow="InsuredValue" msprop:Generator_ColumnPropNameInTable="InsuredValueColumn" msprop:Generator_UserColumnName="InsuredValue" type="xs:decimal" />
+              <xs:element name="InsurancePremium" msprop:Generator_ColumnVarNameInTable="columnInsurancePremium" msprop:Generator_ColumnPropNameInRow="InsurancePremium" msprop:Generator_ColumnPropNameInTable="InsurancePremiumColumn" msprop:Generator_UserColumnName="InsurancePremium" type="xs:decimal" />
+              <xs:element name="DueDate" msprop:Generator_ColumnVarNameInTable="columnDueDate" msprop:Generator_ColumnPropNameInRow="DueDate" msprop:Generator_ColumnPropNameInTable="DueDateColumn" msprop:Generator_UserColumnName="DueDate" type="xs:dateTime" />
+              <xs:element name="PremiumToDate" msprop:Generator_ColumnVarNameInTable="columnPremiumToDate" msprop:Generator_ColumnPropNameInRow="PremiumToDate" msprop:Generator_ColumnPropNameInTable="PremiumToDateColumn" msprop:Generator_UserColumnName="PremiumToDate" type="xs:decimal" />
+              <xs:element name="DateFirstInsured" msprop:Generator_ColumnVarNameInTable="columnDateFirstInsured" msprop:Generator_ColumnPropNameInRow="DateFirstInsured" msprop:Generator_ColumnPropNameInTable="DateFirstInsuredColumn" msprop:Generator_UserColumnName="DateFirstInsured" type="xs:dateTime" />
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PayMode" msprop:Generator_ColumnVarNameInTable="columnPayMode" msprop:Generator_ColumnPropNameInRow="PayMode" msprop:Generator_ColumnPropNameInTable="PayModeColumn" msprop:Generator_UserColumnName="PayMode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

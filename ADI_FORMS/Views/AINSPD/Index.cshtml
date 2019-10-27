@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsInspectionDetails>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Inspection Details</h2>
+    @Html.ActionLink("New Record", "InspectionDetails", "AINSPD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table class="table" id="ainsp">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixedAsset.Description)
+                </th>
+                <th>
+                    Asset Status
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.InspectionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InspectedBy)
+                </th>
+                @*<th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>*@
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#ainsp").DataTable({
+                ajax: {
+                    url: "/api/assetsinspectiondetails/",
+                    dataSrc: ""
+                },
+
+                columns: [
+                    {
+                        data: "fixedAsset.description",
+                        render: function (data, type, ainsp) {
+                            return "<a href='/AINSPD/edit/" + ainsp.id + "'>" + ainsp.fixedAsset.description + "</a>";
+                        }
+                    },
+                    {
+                        data: "assetStatus.name"
+                    },
+                    {
+                        data: "inspectionDate"
+                    },
+                    {
+                        data: "inspectedBy"
+                    },
+                    {
+                        data: "remarks",
+                        render: function (data, type, ainsp) {
+                            return "<a href='/ainspd/delete/" + ainsp.id + "'>Delete" + "</a>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    
+}

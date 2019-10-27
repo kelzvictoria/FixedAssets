@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsValuationDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Asset Valuation Details</h2>
+    @Html.ActionLink("New Record", "ValuationDetails", "AVD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table id="avds" class="table table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Asset
+                </th>
+                <th>
+                    Eff. Date
+                </th>
+                <th>
+                    New Depr. Method
+                </th>
+                <th>
+                    TransDate
+                </th>
+                <th>DELETE</th>
+                @*<th>
+        @Html.DisplayNameFor(model => model.DepreciationMTD.Name)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.FixedAsset.Description)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.LifeSpan)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.LastValDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Eff_Date)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprMethod)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewLifeSpan)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewResidual)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprStartDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprRate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.FirstSalesValue)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprToDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprYearToDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.NewDeprAmount)
+    </th>*@
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/lib")
+    <script>
+        $(document).ready(function () {
+            var table = $("#avds").DataTable({
+                ajax: {
+                    url: "/api/assetsvaluationdetails/",
+                    dataSrc: ""
+                },
+
+                columns: [
+                    {
+                        data: "fixedAsset.description",
+                        render: function (data, type, avd) {
+                            return "<a href='/avd/edit/" + avd.id + "'>" + avd.fixedAsset.description + "</a>";
+                        }
+                    },
+                    
+                    {
+                        data: "eff_Date"
+                    },
+                    {
+                        data: "newDeprMethod"
+                    },
+                    {
+                        data: "transDate"
+                    },
+                    {
+                        data: "firstSalesValue",
+                        render: function (data, type, avd) {
+                            return "<a href='/avd/delete/" + avd.id + "'>Delete" + "</a>";
+                        }
+                    }
+                ]
+            });
+        });
+</script>
+}

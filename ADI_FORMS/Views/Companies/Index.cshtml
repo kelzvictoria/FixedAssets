@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ADI_FORMS.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Companies</h2>
+    @Html.ActionLink("New Record", "RegisterCompany", "Companies", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table class="table" id="comps">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Branch.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RCNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LargeCompanyName)
+                </th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+@Scripts.Render("~/bundles/lib")
+<script>
+    $(document).ready(function () {
+        var table = $("#comps").DataTable({
+            ajax: {
+                url: "/api/companies/",
+                dataSrc: ""
+            },
+
+            columns: [
+                {
+                    data: "name",
+                    render: function (data, type, com) {
+                        return "<a href='/companies/edit/" + com.id + "'>" + com.name + "</a>";
+                    }
+                },
+                {
+                    data: "branch.name"
+                },
+                {
+                    data: "address"
+                },
+                {
+                    data: "rcNumber"
+                },
+                {
+                    data: "largeCompanyName"
+                },
+                {
+                    data: "id",
+                    render: function (data, type, com) {
+                        return "<a href='/companies/delete/" + com.id + "'>Delete" + "</a>";
+                    }
+                }
+            ]
+        });
+    });
+</script>    
+}

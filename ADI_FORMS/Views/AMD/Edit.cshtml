@@ -1,0 +1,88 @@
+﻿@model ADI_FORMS.Models.AssetsMaintenanceDetails
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>AssetsMaintenanceDetails</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FixedAssetId, "Asset", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("FixedAssetId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.FixedAssetId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaintenanceSupervisor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaintenanceSupervisor)
+                    @Html.ValidationMessageFor(model => model.MaintenanceSupervisor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TransactionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.TransactionDate)
+                    @Html.ValidationMessageFor(model => model.TransactionDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Amount)
+                    @Html.ValidationMessageFor(model => model.Amount)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Maint_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Maint_Description)
+                    @Html.ValidationMessageFor(model => model.Maint_Description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GLDebit, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GLDebit)
+                    @Html.ValidationMessageFor(model => model.GLDebit)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GLCredit, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GLCredit)
+                    @Html.ValidationMessageFor(model => model.GLCredit)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

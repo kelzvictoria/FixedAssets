@@ -1,0 +1,125 @@
+﻿@model ADI_FORMS.ViewModels.LocationViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Save", "Locations"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container panel-body">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-12">
+                <div class="row row-sm-offset">
+                    @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+
+                    <div class="col-md-2 multi-horizontal">
+                        <div class="form-group">
+                            <label>Look Up Location</label>
+                            <input type="text" class="form-control lookup" data-target="#addEditUser" data-toggle="modal" name="LOOKUP" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-10 multi-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Location.Name)
+                            @Html.TextBoxFor(m => m.Location.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Location.Name)
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 multi-horizontal">
+                        <div class="form-group">
+
+                            @Html.HiddenFor(m => m.Id)
+                            <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                        </div>
+                    </div>
+                    <br />
+
+                    <div id="addEditUser" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Registered Locations</h4>
+                                </div>
+                                <div class="modal-body">
+                                    @* The body of the edit and save dialog comes here *@
+                                    <table id="locationslookup" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#locationslookup").DataTable(
+                 {
+                     ajax: {
+                         url: "/api/locations",
+                         dataSrc: ""
+                     },
+
+                     columns: [
+                         {
+                             data: "name",
+                             render: function (data, type, location) {
+                                 return "<a href = '/locations/edit/" + location.id + "'>" + location.name + "</a>";
+                             }
+                         }
+                     ]
+                 });
+        });
+    </script>
+    @*<script>
+        $("#savebtn").click(function()
+        {
+            var vm = {
+                "Name": $("#Location_Name").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:1095/api/Locations/AddLocation',
+                data: JSON.stringify(vm),
+                contentType: "application/json; charset=utf-8",
+                processData: true,
+
+                success: function (data, status, xhr) {
+                    alert("The result is: " + status);
+                },
+
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+        })
+    </script>*@
+}

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>
+        FIXED ASSET MANAGEMENT SYSTEM @*| ADI SYSTEMS*@
+    </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link href="~/THEME/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/THEME/css/theme.css" rel="stylesheet" />
+    <link href="~/THEME/css/flexslider.css" rel="stylesheet" />
+    <link href="~/THEME/css/bootstrap-reset.css" rel="stylesheet" />
+    <link href="~/THEME/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/THEME/assets/bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <link href="~/THEME/css/animate.css" rel="stylesheet" />
+    <link href="~/THEME/css/style.css" rel="stylesheet" />
+    <link href="~/THEME/css/style-responsive.css" rel="stylesheet" />
+    <link href="~/THEME/jquery.datatables.1.10.11/Content/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/THEME/jquery.datatables.1.10.11/Content/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/THEME/jquery.datatables.1.10.11/Content/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/THEME/jquery.datatables.1.10.11/Content/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/THEME/jquery.datatables.1.10.11/Content/Content/DataTables/css/dataTables.foundation.min.css" rel="stylesheet" />*@
+
+</head>
+<body>
+    @Html.Partial("_NavBar")
+    <div >
+    @RenderBody()
+        <hr />
+        <footer class="container">
+            <p>&copy; @DateTime.Now.Year -Vickaz Solutions @*ADI SYSTEMS LTD.*@</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/lib")
+    @RenderSection("scripts", required: false)
+
+    @*<script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/hover-dropdown.js"></script>
+    <script src="~/Scripts/jquery.flexslider.js"></script>
+    <script src="~/Scripts/jquery.bxslider.js"></script>
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Scripts/link-hover.js"></script>
+    <script src="~/Scripts/common-scripts.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/jquery.dataTables.min.js"></script>*@
+
+    <script src="~/THEME/bootbox.4.3.0/content/Scripts/bootbox.min.js"></script>
+    <script>
+    wow = new WOW(
+      {
+          boxClass: 'wow',      // default
+          animateClass: 'animated', // default
+          offset: 0          // default
+      }
+    )
+    wow.init();
+    </script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,215 @@
+﻿@model ADI_FORMS.ViewModels.AssetsInsuranceDetailViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "AID"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container panel-body">
+        <div class="row justify-content-center">
+            <div>
+                <div class="row row-sm-offset">
+                    <div class="col-sm-12">
+                        @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" , @style = "margin-left:15px;" })
+
+
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.FixedAssetId)
+                                    @Html.DropDownListFor(m => m.FixedAssetId, new SelectList(Model.FixedAssets, "Id", "Description"), new { @class="form-control"})
+                                    @Html.ValidationMessageFor(m => m.FixedAssetId)
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.InsuranceCompany)
+                                    @Html.TextBoxFor(m => m.InsuranceCompany, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.InsuranceCompany)
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Address)
+                                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Address)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PolicyNo)
+                                    @Html.TextBoxFor(m => m.PolicyNo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PolicyNo)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PremiumPayable)
+                                    @Html.TextBoxFor(m => m.PremiumPayable, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PremiumPayable)
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Interval)
+                                    @Html.TextBoxFor(m => m.Interval, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Interval)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PeriodFrom)
+                                    @Html.TextBoxFor(m => m.PeriodFrom, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PeriodFrom)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PeriodTo)
+                                    @Html.TextBoxFor(m => m.PeriodTo, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PeriodTo)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.InsuredValue)
+                                    @Html.TextBoxFor(m => m.InsuredValue, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.InsuredValue)
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.InsurancePremium)
+                                    @Html.TextBoxFor(m => m.InsurancePremium, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.InsurancePremium)
+                                </div>
+                            </div>
+                          <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DueDate)
+                                @Html.TextBoxFor(m => m.DueDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.DueDate)
+                            </div>
+                           </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DatePaid)
+                                @Html.TextBoxFor(m => m.DatePaid, "{0:d MMM yyyy}", new { @class = "form-control date-picker" })
+                                @Html.ValidationMessageFor(m => m.DatePaid)
+                            </div>
+                        </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PremiumToDate)
+                                    @Html.TextBoxFor(m => m.PremiumToDate, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PremiumToDate)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PayMode)
+                                    @Html.TextBoxFor(m => m.PayMode, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PayMode)
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DateFirstInsured)
+                                    @Html.TextBoxFor(m => m.DateFirstInsured, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.DateFirstInsured)
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.HiddenFor(m => m.Id)
+                                    <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div id="addEditUser" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Registered Assets</h4>
+                                </div>
+                                <div class="modal-body">
+                                    @* The body of the edit and save dialog comes here *@
+                                    <table id="assetslookup" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Asset Description</th>
+                                                <th>Purchased Date</th>
+                                                <th>Cost</th>
+                                                <th>Registered Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#assetslookup").DataTable(
+                 {
+                     ajax: {
+                         url: "/api/fa",
+                         dataSrc: ""
+                     },
+
+                     columns: [
+                         {
+                             data: "description",
+                             render: function (data, type, fixedasset) {
+                                 return "<a href = '/aid/assets/" + fixedasset.id + "'>" + fixedasset.description + "</a>";
+                             }
+                         },
+
+                         {
+                             data: "category.name"
+
+                         },
+                         {
+                             data: "location.name"
+
+                         },
+                         {
+                             data: "branch.name"
+                         }
+                     ]
+                 });
+        });
+    </script>
+}

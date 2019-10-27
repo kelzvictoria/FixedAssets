@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ADI_FORMS.Models.Vendor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Vendors</h2>
+
+    @Html.ActionLink("New Record", "RegisterVendor", "Vendors", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table class="table" id="vendors">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactPerson)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRegistered)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderPending)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastOrder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderYearToDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+@Scripts.Render("~/bundles/lib")
+<script>
+    $(document).ready(function () {
+        var table = $("#vendors").DataTable({
+            ajax: {
+                url: "/api/vendors/",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name",
+                    render: function (data, type, ven) {
+                        return "<a href='/Vendors/edit/" + ven.id + "'>" + ven.name + "</a>";
+                    }
+                },
+                {
+                    data:"address1"
+                },
+                {
+                    data: "address2"
+                },
+                {
+                    data: "country.name"
+                },
+                {
+                    data: "state.name"
+                },
+                {
+                    data: "phone"
+                },
+                {
+                    data: "email"
+                },
+                {
+                    data: "contactPerson"
+                },
+                {
+                    data: "dateRegistered"
+                },
+                {
+                    data: "orderPending"
+                },
+                {
+                    data: "lastOrder"
+                },
+                {
+                    data: "orderYearToDate"
+                },
+                {
+                    data: "id",
+                    render: function (data, type, ven) {
+                        return "<a href='/vendors/delete/" + ven.id + "'>Delete" + "</a>";
+                    }
+                }
+            ]
+        });
+    });
+    </script>
+}

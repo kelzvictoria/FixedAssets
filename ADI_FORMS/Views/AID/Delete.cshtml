@@ -1,0 +1,146 @@
+﻿@model ADI_FORMS.Models.AssetsInsuranceDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>AssetsInsuranceDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FixedAsset.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FixedAsset.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PeriodFrom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PeriodFrom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PeriodTo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PeriodTo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InsuranceCompany)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InsuranceCompany)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InsuredValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InsuredValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InsurancePremium)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InsurancePremium)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PremiumToDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PremiumToDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateFirstInsured)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateFirstInsured)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PremiumPayable)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PremiumPayable)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Interval)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Interval)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DueDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DatePaid)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatePaid)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PayMode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PayMode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PolicyNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PolicyNo)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+    }
+    </div>
+</div>

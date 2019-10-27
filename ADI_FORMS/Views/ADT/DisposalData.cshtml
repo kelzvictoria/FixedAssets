@@ -1,0 +1,217 @@
+﻿@model ADI_FORMS.ViewModels.AssetsDisposalDataViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "ADT"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container">
+
+        <div class="row mar-b-60">
+            <div class="col-lg-12">
+                    <div class="panel-body">
+                        <div class="tab-content tasi-tab">
+                            <div id="dataEntry" class="tab-pane fade in active">
+                                <div class="row justify-content-center">
+                                    <div class="media-container-column col-lg-12">
+                                        <div class="row row-sm-offset">
+                                            @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FixedAssetId)
+                                                    @Html.DropDownListFor(m => m.FixedAssetId, new SelectList(Model.FixedAssets, "Id", "Description"), new { @class="form-control"})
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.AssetsDisposalData.DisposedValue)
+                                                    @Html.TextBoxFor(m => m.AssetsDisposalData.DisposedValue, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.AssetsDisposalData.DisposedValue)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.AssetsDisposalData.DisposalDate)
+                                                    @Html.TextBoxFor(m => m.AssetsDisposalData.DisposalDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.AssetsDisposalData.DisposalDate)
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.AssetsDisposalData.Recipient)
+                                                    @Html.TextBoxFor(m => m.AssetsDisposalData.Recipient, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.AssetsDisposalData.Recipient)
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.AssetsDisposalData.Address)
+                                                    @Html.TextBoxFor(m => m.AssetsDisposalData.Address, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.AssetsDisposalData.Address)
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 multi-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.AssetsDisposalData.Contact)
+                                                    @Html.TextBoxFor(m => m.AssetsDisposalData.Contact, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.AssetsDisposalData.Contact)
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <div class="col-lg-12 form-group">
+                                                <div class="col-md-10 multi-horizontal">
+                                                    <div class="form-group">
+
+                                                        @Html.HiddenFor(m => m.Id)
+                                                        <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--tab end-->
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    @*<div id="addEditUser" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Registered Assets</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <table id="assetslookup" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Asset Description</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>*@
+}
+
+
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+
+
+    <script>
+    $(document).ready(function () {
+        var table = $("#assetslookup").DataTable(
+             {
+                 ajax: {
+                     url: "/api/fa",
+                     dataSrc: ""
+                 },
+
+                 columns: [
+                     {
+                         data: "description",
+                         render: function (data, type, fixedasset) {
+                             return "<a href = '/adt/assets/" + fixedasset.id + "'>" + fixedasset.description + "</a>";
+                         }
+                     },
+
+                     {
+                         data: "category.name"
+
+                     },
+                     {
+                         data: "location.name"
+
+                     },
+                     {
+                         data: "branch.name"
+                     }
+                 ]
+             });
+    });
+    </script>
+
+    <script>
+
+
+        $("#delbtn").on("click", ".js-delete", function () {
+            var button = $(this);
+
+            bootbox.confirm("Are you sure you want to delete this Asset?", function (result) {
+                if (result) {
+                    $.ajax({
+                        url: "/api/fa/" + button.attr("data-asset-id"),
+                        method: "DELETE",
+                        success: function () {
+                            bootbox.confirm("Asset has been successfully deleted.");
+                            //table.row(button.parents("tr")).remove().draw();
+                        }
+                    });
+                }
+            });
+        });
+
+        $("#savebtn").on("click", ".js-save", function () {
+            var button = $(this);
+
+            bootbox.confirm("Confirm to save asset?", function (result) {
+                if (result) {
+                    $.ajax({
+                        url: "/api/fa/" + button.attr("data-asset-id"),
+                        method: "POST",
+                        success: function () {
+                            bootbox.confirm("Asset has been successfully saved.");
+                            //table.row(button.parents("tr")).remove().draw();
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+
+    <script src="~/THEME/bootbox.4.3.0/content/Scripts/bootbox.min.js"></script>
+    <script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/THEME/jquery.datatables.1.10.11/Content/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+
+}
+

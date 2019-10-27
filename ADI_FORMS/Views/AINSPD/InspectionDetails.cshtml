@@ -1,0 +1,115 @@
+﻿@model ADI_FORMS.ViewModels.AssetsInspectionDetailViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "AINSPD"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container panel-body">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-12">
+                <div class="row row-sm-offset">
+                    @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+                            <div class="col-md-3 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.FixedAssetId)
+                                    @Html.DropDownListFor(m => m.FixedAssetId, new SelectList(Model.FixedAssets, "Id", "Description"), new {@class="form-control" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.InspectionDate)
+                                    @Html.TextBoxFor(m => m.InspectionDate, "{0:d MMM yyyy}", new { @class = "form-control datepicker" })
+                                    @Html.ValidationMessageFor(m => m.InspectionDate)
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.InspectedBy)
+                                    @Html.TextBoxFor(m => m.InspectedBy, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.InspectedBy)
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.AssetStatusId)
+                                    @Html.DropDownListFor(m => m.AssetStatusId, new SelectList(Model.AssetStatuses, "Id", "Name"), new {@class="form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-10 multi-horizontal">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Remarks)
+                                    @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Remarks)
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-6 multi-horizontal">
+                                <div class="form-group">
+
+                                    @Html.HiddenFor(m => m.Id)
+                                    <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                                </div>
+                            </div>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+}
+@section Scripts
+{
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/bundles/lib")
+
+            <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+            </script>
+            <script>
+        $(document).ready(function () {
+            var table = $("#assetslookup").DataTable(
+                 {
+                     ajax: {
+                         url: "/api/fa",
+                         dataSrc: ""
+                     },
+
+                     columns: [
+                         {
+                             data: "description",
+                             render: function (data, type, fixedasset) {
+                                 return "<a href = '/ainspd/assets/" + fixedasset.id + "'>" + fixedasset.description + "</a>";
+                             }
+                         },
+
+                         {
+                             data: "category.name"
+
+                         },
+                         {
+                             data: "location.name"
+
+                         },
+                         {
+                             data: "branch.name"
+                         }
+                     ]
+                 });
+        });
+</script>
+}

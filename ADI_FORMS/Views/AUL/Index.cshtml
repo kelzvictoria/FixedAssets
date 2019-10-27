@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+@Html.ActionLink("New Record", "UsageLog", "AUL", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+<h2>Assets Usage Log</h2>
+
+<table id="aulogs" class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Trans Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Destination
+            </th>
+            <th>
+                Staff Identification
+            </th>
+            <th>DELETE</th>
+        </tr>
+    </thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/lib")
+    <script>
+        $(document).ready(function () {
+            var table = $("#aulogs").DataTable({
+                ajax: {
+                    url: "/api/assetusagelogs/",
+                    dataSrc: ""
+                },
+
+                columns: [
+                    {
+                        data: "fixedAsset.description",
+                        render: function (data, type, aul) {
+                            return "<a href='/AUL/edit/" + aul.id + "'>" + aul.fixedAsset.description + "</a>";
+                        }
+                    },
+                    {
+                        data: "trans_Date"
+                    },
+                    {
+                        data: "endDate"
+                    },
+                    {
+                        data: "destination"
+                    },
+                    {
+                        data: "staffIdentification",
+
+                    },
+                    {
+                        data: "startTime",
+                        render: function (data, type, aul) {
+                            return "<a href='/aul/delete/" + aul.id + "'>Delete" + "</a>";
+                        }
+                    }
+                    //,
+                    //{
+                    //    data: "id",
+                    //    render: function (data, type, aul) {
+                    //        return "<a href='/assetusagelogs/edit/" + aul.id + "'>Edit" + "</a>";
+                    //    }
+                    //}
+                    //,
+                    //{
+                    //    data: "id",
+                    //    render: function (data, type, aul) {
+                    //        return "<a href='/assetusagelogs/delete/" + aul.id + "'>Delete" + "</a>";
+                    //    }
+                    //}
+                ]
+            });
+        });
+    </script>
+}

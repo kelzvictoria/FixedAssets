@@ -1,0 +1,122 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsInsuranceDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Insurance Details</h2>
+    @Html.ActionLink("New Record", "InsuranceDetails", "AID", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table class="table" style="width:100%;" id="aids">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixedAsset.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PeriodFrom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PeriodTo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuranceCompany)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsuredValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsurancePremium)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PremiumPayable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Interval)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePaid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PayMode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PolicyNo)
+                </th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section scripts
+{
+<script>
+    $(document).ready(function () {
+        var table = $("#aids").DataTable({
+            ajax: {
+                url: "/api/assetsinsurancedetails/",
+                dataSrc : ""
+            },
+            columns: [
+                {
+                    data: "fixedAsset.description",
+                    render: function (data, type, aid) {
+                        return "<a href='/AID/edit/" + aid.id + "'>" + aid.fixedAsset.description + "</a>";
+                    }
+                },
+                {
+                    data: "periodFrom"
+                },
+                {
+                    data: "periodTo"
+                },
+                {
+                    data: "insuranceCompany"
+                },
+                {
+                    data: "address"
+                },
+                {
+                    data: "insuredValue"
+                },
+                {
+                    data: "insurancePremium"
+                },
+                
+                {
+                    data: "premiumPayable"
+                },
+                {
+                    data: "interval"
+                },
+                {
+                    data: "dueDate"
+                },
+                {
+                    data: "datePaid"
+                },
+                {
+                    data: "payMode"
+                },
+                {
+                    data: "policyNo"
+                },
+                {
+                    data: "premiumToDate",
+                    render: function (data, type, aid) {
+                        return "<a href='/aid/delete/" + aid.id + "'>Delete" + "</a>";
+                    }
+                }
+            ]
+        });
+    });
+</script>    
+}

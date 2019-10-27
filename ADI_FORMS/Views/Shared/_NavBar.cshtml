@@ -1,0 +1,173 @@
+﻿<header class="head-section">
+    <div class="navbar navbar-default navbar-static-top container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                    type="button">
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("FA|", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a class="navbar-brand">
+                <span>ADI SYSTEMS</span>
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" @*style="float: none !important;"*@>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="index.html">
+                        File <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="/FA/RegisterAsset">Assets Register</a></li>
+                        <li><a href="/AUL/UsageLog">Assets Usage Log</a></li>
+                        <li><a href="/AMD/MaintenanceDetails">Assets Maintenance Details</a></li>
+                        <li><a href="/AVD/ValuationDetails">Assets Valuation Details</a></li>
+                        <li><a href="/AID/InsuranceDetails">Insurance Premium Payments</a></li>
+                        <li><a href="/AINSPD/InspectionDetails">Assets Inspection Details</a></li>
+                        <li><a href="/ATD/TransferData">Assets Transfer Information</a></li>
+
+                        <li><a href="/ADT/DisposalData">Assets Disposal Details</a></li>
+                        <li><a href="/EOM/EndOfMonth">End-of-Month Process </a></li>
+                        <li><a href="/EOY/EndOfYear">End-of-Year Process </a></li>
+                        <li><a href="/Companies/RegisterCompany">Company Registration</a></li>
+                        <li><a href="/Vendors/RegisterVendor">Customers Registration </a></li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="#">Systems Codes/Tables</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Locations/LocationDefinition">Assets Location</a></li>
+                                <li><a href="/Categories/CategoryDefinition">Assets Category</a></li>
+                                <li><a href="/AMC/MaintenanceCodeDefinition">Assets Maintenance Codes</a></li>
+                                <li><a href="/Branches/Definition">Branch Definition</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                        Reports<i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/ReportViews/AssetsDetailReport">Assets Details Reports</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/VehicleListing">Vehicle Listing</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Assets Distribution by Income</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Assets Summary by Type</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/AssetDepreciationReport">Assets Depreciation Report</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/InsuranceReport">Assets Insurance Details</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/AssetDisposal">Assets Disposal Information</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Assets Transfer Information</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/InspectionReport">Physical Inspection Report</a>
+                        </li>
+
+                        <li>
+                            <a href="/ReportViews/CustomerListing">Customer Listing</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Systems Codes</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Assets Definition Listing</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Assets History Details</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                        Utilities <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#">File Integrity Check</a></li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="#">Systems Codes/Tables</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">A  CLASSIFICATION CODES</a></li>
+                                <li><a href="#">B  ASSETS CODES</a></li>
+                                <li><a href="#">C  DEDUCTION CODES</a></li>
+                                <li><a href="#">D  LOAN CODES</a></li>
+                                <li><a href="#">E  EARNINGS CODES</a></li>
+
+                                <li><a href="#">F  STATES CODES</a></li>
+                                <li><a href="#">G  LEAVE CODES</a></li>
+                                <li><a href="#">L  DESIGNATION CODES</a></li>
+                                <li><a href="#">M  STATUS CODES</a></li>
+                                <li><a href="#">N  REASONS CODES</a></li>
+
+                                <li><a href="#">R  BRANCH CODES</a></li>
+                                <li><a href="#">S  COUNTRY CODES</a></li>
+                                <li><a href="#">T  NON-TAXABLE CODES</a></li>
+                                <li><a href="#">Q  QUALIFICATION CODES</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/Account/Manage">Change Password</a></li>
+                        <li><a href="/Account/Register">Create New Users</a></li>
+                        <li><a href="#">Systems Setup</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#">
+                        Edit <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="">Cut</a>
+                        </li>
+
+                        <li>
+                            <a href="">Copy</a>
+                        </li>
+
+                        <li>
+                            <a href="">Paste</a>
+                        </li>
+
+                        <li>
+                            <a href="">Find</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="">Help</a>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</header>

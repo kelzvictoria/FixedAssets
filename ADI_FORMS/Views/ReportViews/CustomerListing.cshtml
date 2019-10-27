@@ -1,0 +1,109 @@
+﻿
+
+@model ADI_FORMS.ViewModels.RegisterAssetViewModel
+
+@{
+    ViewBag.Title = "Customer Listing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*@using (Html.BeginForm())
+{*@
+    <div class="container">
+        <h2>Customer Listing</h2>
+
+        <b>Search Option:</b>
+        @Html.RadioButton("option", "all", new {id = "test", @class = "radbtns" ,@checked="checked"})<text>All</text>
+        @Html.RadioButton("option", "company", new { id="com", @class="radbtns" @*,@checked="checked"*@})<text>Company</text>
+        @Html.RadioButton("option", "Branch", new { id = "brn", @class = "radbtns"})<text>Branch</text>
+        @Html.RadioButton("option", "Category", new { id = "cat", @class = "radbtns"})<text>Category</text>
+        @Html.RadioButton("option", "Location", new { id = "loc", @class = "radbtns"})<text>Location</text>
+        <br/><br/>
+
+        <div class="col-md-3 multi-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FixedAsset.CompanyId)
+                @Html.DropDownListFor(m => m.FixedAsset.CompanyId, new SelectList(Model.Companies, "Id", "Name"), "Select Company", new { @class = "form-control filter-selector com-filter-selector", @enabled = "enabled" @*@disabled = "disabled"*@ })
+            </div>
+        </div>
+
+        <div class="col-md-3 multi-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FixedAsset.BranchId)
+                @Html.DropDownListFor(m => m.FixedAsset.BranchId, new SelectList(Model.Branches, "Id", "Name"), "Select Branch", new { @class = "form-control filter-selector brn-filter-selector", @enabled = "enabled" @*@disabled="disabled"*@ })
+                @Html.ValidationMessageFor(m => m.FixedAsset.BranchId)
+            </div>
+        </div>
+
+        <div class="col-md-3 multi-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FixedAsset.CategoryId)
+                @Html.DropDownListFor(m => m.FixedAsset.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Asset Category", new { @class = "form-control filter-selector cat-filter-selector", @enabled="enabled" @*@disabled="disabled"*@})
+                @Html.ValidationMessageFor(m => m.FixedAsset.CategoryId)
+            </div>
+        </div>
+
+        <div class="col-md-3 multi-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FixedAsset.LocationId)
+                @Html.DropDownListFor(m => m.FixedAsset.LocationId, new SelectList(Model.Locations, "Id", "Name"), "Select Location", new { @class = "form-control filter-selector loc-filter-selector", @enabled = "enabled" @*@disabled = "disabled"*@ })
+                @Html.ValidationMessageFor(m => m.FixedAsset.LocationId)
+            </div>
+        </div>
+        @*@Html.TextBox("Search")
+        <input type="submit" value="Search" class="" name="submit" />
+        <br /><br />
+        
+        <text>From</text>
+        @Html.TextBox("DateFrom")
+        <text>To</text>
+        @Html.TextBox("DateTo")*@
+        <br /><br /><br />
+
+        <br/><br/>
+        @Html.ActionLink("Preview", "CustomersListing.aspx", "Reports/WebForms", null, new { @class = "btn btn-info" })
+        @*@Html.ActionLink("Print", "CustomerListing.aspx", "Reports/WebForms", new { @class = "btn btn-primary" })*@
+        <br /><br />
+    </div>
+@*}*@
+
+@section scripts{
+<script>
+    $('.radbtns').on('click', function () {
+        var _this = $(this);
+
+        //var filterSelector = $('.filter-selector');
+
+        //if (_this.attr('id') == 'all') {
+        //    filterSelector.attr('disabled', true);
+        //}
+
+        //else {
+        //    filterSelector.attr('disabled', false);
+        //}
+
+        var comfilterSelector = $('.com-filter-selector');
+        var brnfilterSelector = $('.brn-filter-selector');
+        var catfilterSelector = $('.cat-filter-selector');
+        var locfilterSelector = $('.loc-filter-selector');
+
+        if (_this.attr('id') == 'company') {
+            comfilterSelector.attr('disabled', false);
+        }
+
+        else if (_this.attr('id') == 'Branch') {
+            filterSelectors.attr('disabled', true);
+        }
+        else if (_this.attr('id') == 'Category') {
+            filterSelectors.attr('disabled', true);
+        }
+
+        else if (_this.attr('id') == 'Location') {
+            filterSelectors.attr('disabled', true);
+        }
+    });
+
+</script>
+}

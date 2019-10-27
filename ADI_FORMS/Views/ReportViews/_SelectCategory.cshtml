@@ -1,0 +1,9 @@
+﻿@model ADI_FORMS.ViewModels.RegisterAssetViewModel
+
+<div class="col-md-4 multi-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.FixedAsset.CategoryId)
+        @Html.DropDownListFor(m => m.FixedAsset.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Asset Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FixedAsset.CategoryId)
+    </div>
+</div>

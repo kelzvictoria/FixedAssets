@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEBF2242-CAE5-4AE2-B553-26AF36232A68}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADI_FORMS</RootNamespace>
+    <AssemblyName>ADI_FORMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ADTController.cs" />
+    <Compile Include="Controllers\AIDController.cs" />
+    <Compile Include="Controllers\AINSPDController.cs" />
+    <Compile Include="Controllers\AMCController.cs" />
+    <Compile Include="Controllers\AMDController.cs" />
+    <Compile Include="Controllers\Api\AMCController.cs" />
+    <Compile Include="Controllers\Api\AMDController.cs" />
+    <Compile Include="Controllers\Api\AssetsDisposalDatasController.cs" />
+    <Compile Include="Controllers\Api\AssetsInspectionDetailsController.cs" />
+    <Compile Include="Controllers\Api\AssetsInsuranceDetailsController.cs" />
+    <Compile Include="Controllers\Api\AssetsTransferDatasController.cs" />
+    <Compile Include="Controllers\Api\AssetsValuationDetailsController.cs" />
+    <Compile Include="Controllers\Api\AssetUsageLogsController.cs" />
+    <Compile Include="Controllers\Api\BranchesController.cs" />
+    <Compile Include="Controllers\Api\CategoriesController.cs" />
+    <Compile Include="Controllers\Api\CompaniesController.cs" />
+    <Compile Include="Controllers\Api\FAController.cs" />
+    <Compile Include="Controllers\Api\LocationsController.cs" />
+    <Compile Include="Controllers\Api\VendorsController.cs" />
+    <Compile Include="Controllers\ATDController.cs" />
+    <Compile Include="Controllers\AULController.cs" />
+    <Compile Include="Controllers\AVDController.cs" />
+    <Compile Include="Controllers\BranchesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\EOMController.cs" />
+    <Compile Include="Controllers\EOYController.cs" />
+    <Compile Include="Controllers\FAController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\ReportViewsController.cs" />
+    <Compile Include="Controllers\VendorsController.cs" />
+    <Compile Include="Dtos\AssetMaintenanceIntervalDto.cs" />
+    <Compile Include="Dtos\AssetsDetailReportDto.cs" />
+    <Compile Include="Dtos\AssetsDisposalDataDto.cs" />
+    <Compile Include="Dtos\AssetsInspectionDetailsDto.cs" />
+    <Compile Include="Dtos\AssetsInsuranceDetailDto.cs" />
+    <Compile Include="Dtos\AssetsMaintenanceCodeDto.cs" />
+    <Compile Include="Dtos\AssetsMaintenanceDetailsDto.cs" />
+    <Compile Include="Dtos\AssetStatusDto.cs" />
+    <Compile Include="Dtos\AssetsTransferDataDto.cs" />
+    <Compile Include="Dtos\AssetsValuationDetailDto.cs" />
+    <Compile Include="Dtos\AssetUsageLogDto.cs" />
+    <Compile Include="Dtos\BranchDto.cs" />
+    <Compile Include="Dtos\CategoryDto.cs" />
+    <Compile Include="Dtos\CompanyDto.cs" />
+    <Compile Include="Dtos\CountryDto.cs" />
+    <Compile Include="Dtos\DepreciationMTDDto.cs" />
+    <Compile Include="Dtos\EndOfMonthDto.cs" />
+    <Compile Include="Dtos\EndOfYearDto.cs" />
+    <Compile Include="Dtos\FixedAssetDto.cs" />
+    <Compile Include="Dtos\GradeDto.cs" />
+    <Compile Include="Dtos\LocationDto.cs" />
+    <Compile Include="Dtos\MonthsDto.cs" />
+    <Compile Include="Dtos\SortByDto.cs" />
+    <Compile Include="Dtos\StateDto.cs" />
+    <Compile Include="Dtos\VendorDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221859067_AddTables.cs" />
+    <Compile Include="Migrations\201904221859067_AddTables.Designer.cs">
+      <DependentUpon>201904221859067_AddTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200836348_AddDeprIntervals.cs" />
+    <Compile Include="Migrations\201905200836348_AddDeprIntervals.Designer.cs">
+      <DependentUpon>201905200836348_AddDeprIntervals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200837355_PopulateDepreIntervals.cs" />
+    <Compile Include="Migrations\201905200837355_PopulateDepreIntervals.Designer.cs">
+      <DependentUpon>201905200837355_PopulateDepreIntervals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200850585_PopulateAssetStatus.cs" />
+    <Compile Include="Migrations\201905200850585_PopulateAssetStatus.Designer.cs">
+      <DependentUpon>201905200850585_PopulateAssetStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200900532_PopulateMonths.cs" />
+    <Compile Include="Migrations\201905200900532_PopulateMonths.Designer.cs">
+      <DependentUpon>201905200900532_PopulateMonths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200907141_PopulateDeprMethods.cs" />
+    <Compile Include="Migrations\201905200907141_PopulateDeprMethods.Designer.cs">
+      <DependentUpon>201905200907141_PopulateDeprMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200933534_AddDeprMTDtoFA.cs" />
+    <Compile Include="Migrations\201905200933534_AddDeprMTDtoFA.Designer.cs">
+      <DependentUpon>201905200933534_AddDeprMTDtoFA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905201014522_ModifyFA.cs" />
+    <Compile Include="Migrations\201905201014522_ModifyFA.Designer.cs">
+      <DependentUpon>201905201014522_ModifyFA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905201456459_PopulateFA.cs" />
+    <Compile Include="Migrations\201905201456459_PopulateFA.Designer.cs">
+      <DependentUpon>201905201456459_PopulateFA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905241042111_MakeInsuranceDueDateNullable.cs" />
+    <Compile Include="Migrations\201905241042111_MakeInsuranceDueDateNullable.Designer.cs">
+      <DependentUpon>201905241042111_MakeInsuranceDueDateNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905241125225_AddRequiredFieldsToAID.cs" />
+    <Compile Include="Migrations\201905241125225_AddRequiredFieldsToAID.Designer.cs">
+      <DependentUpon>201905241125225_AddRequiredFieldsToAID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905250704157_anyupdate.cs" />
+    <Compile Include="Migrations\201905250704157_anyupdate.Designer.cs">
+      <DependentUpon>201905250704157_anyupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905260704309_AddCompanyToVendor.cs" />
+    <Compile Include="Migrations\201905260704309_AddCompanyToVendor.Designer.cs">
+      <DependentUpon>201905260704309_AddCompanyToVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906231119081_RemoveBranchesFromCompany.cs" />
+    <Compile Include="Migrations\201906231119081_RemoveBranchesFromCompany.Designer.cs">
+      <DependentUpon>201906231119081_RemoveBranchesFromCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909151222373_AnyUpd.cs" />
+    <Compile Include="Migrations\201909151222373_AnyUpd.Designer.cs">
+      <DependentUpon>201909151222373_AnyUpd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909260639155_AddTransDateToAVD.cs" />
+    <Compile Include="Migrations\201909260639155_AddTransDateToAVD.Designer.cs">
+      <DependentUpon>201909260639155_AddTransDateToAVD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909261349016_DropLifespanInAVD.cs" />
+    <Compile Include="Migrations\201909261349016_DropLifespanInAVD.Designer.cs">
+      <DependentUpon>201909261349016_DropLifespanInAVD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909280951011_ReAddBranchesToCompany.cs" />
+    <Compile Include="Migrations\201909280951011_ReAddBranchesToCompany.Designer.cs">
+      <DependentUpon>201909280951011_ReAddBranchesToCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909281029395_MkGradeNullableInCompany.cs" />
+    <Compile Include="Migrations\201909281029395_MkGradeNullableInCompany.Designer.cs">
+      <DependentUpon>201909281029395_MkGradeNullableInCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291339295_ChangeIntToLongInVendor.cs" />
+    <Compile Include="Migrations\201909291339295_ChangeIntToLongInVendor.Designer.cs">
+      <DependentUpon>201909291339295_ChangeIntToLongInVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910120657376_SeedUsers.cs" />
+    <Compile Include="Migrations\201910120657376_SeedUsers.Designer.cs">
+      <DependentUpon>201910120657376_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AssetMaintenanceInterval.cs" />
+    <Compile Include="Models\AssetsDetailReport.cs" />
+    <Compile Include="Models\AssetsDisposalData.cs" />
+    <Compile Include="Models\AssetsInspectionDetails.cs" />
+    <Compile Include="Models\AssetsInsuranceDetail.cs" />
+    <Compile Include="Models\AssetsMaintenanceCode.cs" />
+    <Compile Include="Models\AssetsMaintenanceDetails.cs" />
+    <Compile Include="Models\AssetStatus.cs" />
+    <Compile Include="Models\AssetsTransferData.cs" />
+    <Compile Include="Models\AssetsValuationDetail.cs" />
+    <Compile Include="Models\AssetUsageLog.cs" />
+    <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DepreciationMTD.cs" />
+    <Compile Include="Models\DeprInterval.cs" />
+    <Compile Include="Models\EndOfMonth.cs" />
+    <Compile Include="Models\EndOfYear.cs" />
+    <Compile Include="Models\FixedAsset.cs" />
+    <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Months.cs" />
+    <Compile Include="Models\RoleName.cs" />
+    <Compile Include="Models\SortBy.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ADepreciationListing.aspx.cs">
+      <DependentUpon>ADepreciationListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ADepreciationListing.aspx.designer.cs">
+      <DependentUpon>ADepreciationListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ADR.aspx.cs">
+      <DependentUpon>ADR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ADR.aspx.designer.cs">
+      <DependentUpon>ADR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AssetDeprDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssetDeprDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AssetsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssetsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\CustomersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\DisposalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DisposalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\InspectionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InspectionDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSets\TransferDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransferDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Insurance.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Insurance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\InsuranceDetails.aspx.cs">
+      <DependentUpon>InsuranceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\InsuranceDetails.aspx.designer.cs">
+      <DependentUpon>InsuranceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VehiclesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\VehicleListing.aspx.cs">
+      <DependentUpon>VehicleListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\VehicleListing.aspx.designer.cs">
+      <DependentUpon>VehicleListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WebForms\AssetDisposal.aspx.cs">
+      <DependentUpon>AssetDisposal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForms\AssetDisposal.aspx.designer.cs">
+      <DependentUpon>AssetDisposal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WebForms\CustomersListing.aspx.cs">
+      <DependentUpon>CustomersListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForms\CustomersListing.aspx.designer.cs">
+      <DependentUpon>CustomersListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WebForms\InspectionReport.aspx.cs">
+      <DependentUpon>InspectionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForms\InspectionReport.aspx.designer.cs">
+      <DependentUpon>InspectionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AssetsDetailReportViewModel.cs" />
+    <Compile Include="ViewModels\AssetsMaintenanceCodeViewModel.cs" />
+    <Compile Include="ViewModels\AssetsDisposalDataViewModel.cs" />
+    <Compile Include="ViewModels\AssetsInspectionDetailViewModel.cs" />
+    <Compile Include="ViewModels\AssetsInsuranceDetailViewModel.cs" />
+    <Compile Include="ViewModels\AssetsMaintenanceViewModel.cs" />
+    <Compile Include="ViewModels\AssetsTransferDataViewModel.cs" />
+    <Compile Include="ViewModels\AssetsValuationDetailViewModel.cs" />
+    <Compile Include="ViewModels\AssetUsageLogViewModel.cs" />
+    <Compile Include="ViewModels\BranchViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CompanyViewModel.cs" />
+    <Compile Include="ViewModels\EndOfMonthViewModel.cs" />
+    <Compile Include="ViewModels\EndOfYearViewModel.cs" />
+    <Compile Include="ViewModels\LocationViewModel.cs" />
+    <Compile Include="ViewModels\RegisterAssetViewModel.cs" />
+    <Compile Include="ViewModels\VendorViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reset.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\icon-calendar.svg" />
+    <Content Include="Content\jquery.bxslider.css" />
+    <Content Include="Content\jquery.bxslider.js" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\mbr-additional.css" />
+    <Content Include="Content\mbr-bootstrap.min.css" />
+    <Content Include="Content\mbr-style.css" />
+    <Content Include="Content\noscript.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\tether.min.css" />
+    <Content Include="Content\theme.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\search-icon.jpg" />
+    <Content Include="Images\triangle.png" />
+    <Content Include="Reports\ADepreciationListing.aspx" />
+    <Content Include="Reports\ADR.aspx" />
+    <Content Include="Reports\InsuranceDetails.aspx" />
+    <Content Include="Reports\VehicleListing.aspx" />
+    <Content Include="Reports\WebForms\AssetDisposal.aspx" />
+    <Content Include="Reports\WebForms\CustomersListing.aspx" />
+    <Content Include="Reports\WebForms\InspectionReport.aspx" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Reports\AssetsDataSet.xsc">
+      <DependentUpon>AssetsDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\AssetDeprDataSet.xsc">
+      <DependentUpon>AssetDeprDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Reports\AssetDeprDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssetDeprDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\AssetDeprDataSet.xss">
+      <DependentUpon>AssetDeprDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\AssetsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssetsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\AssetsDataSet.xss">
+      <DependentUpon>AssetsDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\VehiclesDataSet.xsc">
+      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Insurance.xsc">
+      <DependentUpon>Insurance.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSets\DisposalDataSet.xsc">
+      <DependentUpon>DisposalDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSets\CustomersDataSet.xsc">
+      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSets\CustomersDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomersDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSets\CustomersDataSet.xss">
+      <DependentUpon>CustomersDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSets\DisposalDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DisposalDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSets\DisposalDataSet.xss">
+      <DependentUpon>DisposalDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSets\TransferDataSet.xsc">
+      <DependentUpon>TransferDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSets\InspectionDataSet.xsc">
+      <DependentUpon>InspectionDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSets\InspectionDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InspectionDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSets\InspectionDataSet.xss">
+      <DependentUpon>InspectionDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSets\TransferDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TransferDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSets\TransferDataSet.xss">
+      <DependentUpon>TransferDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Insurance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Insurance.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Insurance.xss">
+      <DependentUpon>Insurance.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\VehiclesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehiclesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\VehiclesDataSet.xss">
+      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\common-scripts.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.print.js" />
+    <Content Include="Scripts\DataTables\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\hover-dropdown.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.bxslider.js" />
+    <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.ui.dialog.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\link-hover.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\FA\RegisterAsset.cshtml" />
+    <Content Include="Views\AMD\MaintenanceDetails.cshtml" />
+    <Content Include="Views\AUL\UsageLog.cshtml" />
+    <Content Include="Views\AVD\ValuationDetails.cshtml" />
+    <Content Include="Views\AID\InsuranceDetails.cshtml" />
+    <Content Include="Views\AINSPD\InspectionDetails.cshtml" />
+    <Content Include="Views\ATD\TransferData.cshtml" />
+    <Content Include="Views\ADT\DisposalData.cshtml" />
+    <Content Include="Views\Companies\RegisterCompany.cshtml" />
+    <Content Include="Views\Vendors\RegisterVendor.cshtml" />
+    <Content Include="Views\Locations\LocationDefinition.cshtml" />
+    <Content Include="Views\EOM\EndOfMonth.cshtml" />
+    <Content Include="Views\EOY\EndOfYear.cshtml" />
+    <Content Include="Views\Categories\CategoryDefinition.cshtml" />
+    <Content Include="Views\AMC\MaintenanceCodeDefinition.cshtml" />
+    <Content Include="Views\Branches\Definition.cshtml" />
+    <Content Include="Views\Shared\_BreadCrumb.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\ReportViews\AssetsDetailReport.cshtml" />
+    <Content Include="Views\ReportViews\_SelectCompany.cshtml" />
+    <Content Include="Views\ReportViews\_SelectBranch.cshtml" />
+    <Content Include="Views\ReportViews\_SelectCategory.cshtml" />
+    <Content Include="Views\ReportViews\_SelectLocation.cshtml" />
+    <Content Include="Views\ReportViews\VehicleListing.cshtml" />
+    <Content Include="Views\ReportViews\AssetDepreciationReport.cshtml" />
+    <Content Include="Views\ReportViews\InsuranceReport.cshtml" />
+    <Content Include="Views\ReportViews\AssetDisposal.cshtml" />
+    <Content Include="Views\ReportViews\AssetTransfer.cshtml" />
+    <Content Include="Views\ReportViews\InspectionReport.cshtml" />
+    <Content Include="Views\ReportViews\CustomerListing.cshtml" />
+    <Content Include="Views\ReportViews\System Codes.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\AUL\Delete.cshtml" />
+    <Content Include="Views\AUL\Edit.cshtml" />
+    <Content Include="Views\AUL\Index.cshtml" />
+    <Content Include="Views\AMD\Index.cshtml" />
+    <Content Include="Views\AMD\Edit.cshtml" />
+    <Content Include="Views\AMD\Delete.cshtml" />
+    <Content Include="Views\AVD\Index.cshtml" />
+    <Content Include="Views\AVD\Edit.cshtml" />
+    <Content Include="Views\AVD\Delete.cshtml" />
+    <Content Include="Views\AID\Index.cshtml" />
+    <Content Include="Views\AID\Edit.cshtml" />
+    <Content Include="Views\AID\Delete.cshtml" />
+    <Content Include="Views\AINSPD\Index.cshtml" />
+    <Content Include="Views\AINSPD\Edit.cshtml" />
+    <Content Include="Views\AINSPD\Delete.cshtml" />
+    <Content Include="Views\ATD\Index.cshtml" />
+    <Content Include="Views\ATD\Edit.cshtml" />
+    <Content Include="Views\ATD\Delete.cshtml" />
+    <Content Include="Views\ADT\Index.cshtml" />
+    <Content Include="Views\ADT\Edit.cshtml" />
+    <Content Include="Views\ADT\Delete.cshtml" />
+    <Content Include="Views\Companies\Index.cshtml" />
+    <Content Include="Views\Companies\Edit.cshtml" />
+    <Content Include="Views\Companies\Delete.cshtml" />
+    <Content Include="Views\Vendors\Index.cshtml" />
+    <Content Include="Views\Vendors\Edit.cshtml" />
+    <Content Include="Views\Vendors\Delete.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\FA\Delete.cshtml" />
+    <Content Include="Views\FA\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\DataTables\css\" />
+    <Folder Include="Content\DataTables\images\" />
+    <Folder Include="Content\DataTables\swf\" />
+    <Folder Include="Content\font-awesome\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904221859067_AddTables.resx">
+      <DependentUpon>201904221859067_AddTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200836348_AddDeprIntervals.resx">
+      <DependentUpon>201905200836348_AddDeprIntervals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200837355_PopulateDepreIntervals.resx">
+      <DependentUpon>201905200837355_PopulateDepreIntervals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200850585_PopulateAssetStatus.resx">
+      <DependentUpon>201905200850585_PopulateAssetStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200900532_PopulateMonths.resx">
+      <DependentUpon>201905200900532_PopulateMonths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200907141_PopulateDeprMethods.resx">
+      <DependentUpon>201905200907141_PopulateDeprMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200933534_AddDeprMTDtoFA.resx">
+      <DependentUpon>201905200933534_AddDeprMTDtoFA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201014522_ModifyFA.resx">
+      <DependentUpon>201905201014522_ModifyFA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201456459_PopulateFA.resx">
+      <DependentUpon>201905201456459_PopulateFA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241042111_MakeInsuranceDueDateNullable.resx">
+      <DependentUpon>201905241042111_MakeInsuranceDueDateNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241125225_AddRequiredFieldsToAID.resx">
+      <DependentUpon>201905241125225_AddRequiredFieldsToAID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905250704157_anyupdate.resx">
+      <DependentUpon>201905250704157_anyupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905260704309_AddCompanyToVendor.resx">
+      <DependentUpon>201905260704309_AddCompanyToVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906231119081_RemoveBranchesFromCompany.resx">
+      <DependentUpon>201906231119081_RemoveBranchesFromCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909151222373_AnyUpd.resx">
+      <DependentUpon>201909151222373_AnyUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909260639155_AddTransDateToAVD.resx">
+      <DependentUpon>201909260639155_AddTransDateToAVD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909261349016_DropLifespanInAVD.resx">
+      <DependentUpon>201909261349016_DropLifespanInAVD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909280951011_ReAddBranchesToCompany.resx">
+      <DependentUpon>201909280951011_ReAddBranchesToCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909281029395_MkGradeNullableInCompany.resx">
+      <DependentUpon>201909281029395_MkGradeNullableInCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291339295_ChangeIntToLongInVendor.resx">
+      <DependentUpon>201909291339295_ChangeIntToLongInVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910120657376_SeedUsers.resx">
+      <DependentUpon>201910120657376_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AssetDeprReport.rdlc" />
+    <EmbeddedResource Include="Reports\AssetDetailReport.rdlc" />
+    <EmbeddedResource Include="Reports\InsuranceReport.rdlc" />
+    <EmbeddedResource Include="Reports\Reports\CustomersReport.rdlc" />
+    <EmbeddedResource Include="Reports\Reports\DisposalReport.rdlc" />
+    <EmbeddedResource Include="Reports\Reports\InspectionReport.rdlc" />
+    <EmbeddedResource Include="Reports\VehicleListing.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1038</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1095/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:1095/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

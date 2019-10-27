@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsDisposalData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+<h2>Disposal Data</h2>
+@Html.ActionLink("New Record", "TransferData", "ADT", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+<table class="table" id="adts">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedAsset.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisposalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisposedValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</div>
+@section scripts
+{@Scripts.Render("~/bundles/lib")
+    <script>
+        $(document).ready(function () {
+            var table = $("#adts").DataTable({
+                ajax: {
+                    url: "/api/assetsdisposaldatas/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "fixedAsset.description",
+                        render: function (data, type, adt) {
+                            return "<a href='/adt/edit/" + adt.id + "'>" + adt.fixedAsset.description + "</a>";
+                        }
+                    },
+                    {
+                        data: "disposalDate"
+                    },
+                    {
+                        data: "disposedValue"
+                    },
+                    {
+                        data: "address"
+                    },
+                    {
+                        data: "recipient"
+                    },
+                    {
+                        data: "contact"
+                    },
+                    {
+                        data: "id",
+                        render: function (data, type, adt) {
+                            return "<a href='/adt/delete/" + adt.id + "'>Delete" + "</a>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}

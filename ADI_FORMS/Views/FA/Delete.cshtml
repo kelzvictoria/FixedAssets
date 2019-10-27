@@ -1,0 +1,347 @@
+﻿@model ADI_FORMS.Models.FixedAsset
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Fixed Asset</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.AssetMaintenanceInterval.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AssetMaintenanceInterval.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AssetStatus.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AssetStatus.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Branch.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Branch.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Company.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Company.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DepreciationMTD.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DepreciationMTD.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeprInterval.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeprInterval.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Location.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Months.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Months.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Vendor.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Vendor.Name)
+                </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StaffAssigned)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StaffAssigned)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InitialCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InitialCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SerialNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SerialNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PurchasesOrderNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PurchasesOrderNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PurchaseRecptNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PurchaseRecptNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YearOfManufacture)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YearOfManufacture)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PurchasedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PurchasedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AssetAccountNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AssetAccountNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EngineNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EngineNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassicNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClassicNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaintenanceFigure)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaintenanceFigure)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PresentValue)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PresentValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateRegistered)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateRegistered)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastValuationDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastValuationDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LifeSpan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LifeSpan)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.LastDeprYear)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastDeprYear)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Residual)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Residual)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AnnualDeprAmount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AnnualDeprAmount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DepreciationRate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DepreciationRate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastDeprDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastDeprDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastDeprAmt)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastDeprAmt)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeprYTD)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeprYTD)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeprToDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeprToDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GLDebitAcc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GLDebitAcc)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GLCreditAcc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GLCreditAcc)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeprCommenced)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeprCommenced)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeprEndDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeprEndDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentYear)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentYear)
+                </dd>*@
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Admin", "Home")
+            </div>
+        }
+    </div>
+</div>

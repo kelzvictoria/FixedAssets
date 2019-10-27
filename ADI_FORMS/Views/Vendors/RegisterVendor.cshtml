@@ -1,0 +1,194 @@
+﻿@model ADI_FORMS.ViewModels.VendorViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "Vendors"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container">
+        <div class="panel-body">
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-12">
+                    <div class="row row-sm-offset">
+                        @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+                        @*<div class="col-md-4 multi-horizontal">
+                                <div class="form-group">
+                                    <label>Look Up Vendor</label>
+                                    <input type="text" class="form-control lookup" data-target="#addEditUser" data-toggle="modal" name="LOOKUP" />
+                                </div>
+                            </div>*@
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Name)
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Name)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Address1)
+                                @Html.TextBoxFor(m => m.Address1, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Address1)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Address2)
+                                @Html.TextBoxFor(m => m.Address2, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Address2)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.StateId)
+                                @Html.DropDownListFor(m => m.StateId, new SelectList(Model.States, "Id", "Name"), "Select State", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.StateId)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CountryId)
+                                @Html.DropDownListFor(m => m.CountryId, new SelectList(Model.Countries, "Id", "Name"), "Select Country", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CountryId)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Phone)
+                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Phone)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email)
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ContactPerson)
+                                @Html.TextBoxFor(m => m.ContactPerson, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ContactPerson)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DateRegistered)
+                                @Html.TextBoxFor(m => m.DateRegistered, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.DateRegistered)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.OrderPending)
+                                @Html.TextBoxFor(m => m.OrderPending, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.OrderPending)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastOrder)
+                                @Html.TextBoxFor(m => m.LastOrder, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.LastOrder)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.OrderYearToDate)
+                                @Html.TextBoxFor(m => m.OrderYearToDate, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.OrderYearToDate)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+
+                                @Html.HiddenFor(m => m.Id)
+                                <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                            </div>
+                        </div>
+                        <br />
+
+                        <div id="addEditUser" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Registered Vendors</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        @* The body of the edit and save dialog comes here *@
+                                        <table id="Vendorslookup" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Vendor</th>
+
+                                                    <th>State</th>
+                                                    <th>Country</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+    <script>
+        $(document).ready(function () {
+            var table = $("#Vendorslookup").DataTable(
+                 {
+                     ajax: {
+                         url: "/api/vendors",
+                         dataSrc: ""
+                     },
+
+                     columns: [
+                         {
+                             data: "name",
+                             render: function (data, type, vendor) {
+                                 return "<a href = '/vendors/edit/" + vendor.id + "'>" + vendor.name + "</a>";
+                             }
+                         },
+
+                         {
+                             data: "state.name"
+
+                         },
+                         {
+                             data: "country.name"
+
+                         }
+                     ]
+                 });
+        });
+    </script>
+}

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AssetsDataSet" targetNamespace="http://tempuri.org/AssetsDataSet.xsd" xmlns:mstns="http://tempuri.org/AssetsDataSet.xsd" xmlns="http://tempuri.org/AssetsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="FAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.FAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ASSETSVIEWTableAdapter" GeneratorDataComponentClassName="ASSETSVIEWTableAdapter" Name="ASSETSVIEW" UserDataComponentName="ASSETSVIEWTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FAConnectionString (Web.config)" DbObjectName="[aspnet-ADI_FORMS-20190421120836].dbo.ASSETSVIEW" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Description, InitialCost, Category, Location, Model, SerialNo, Status, PurchasedDate, AssetAccountNo, MaintenanceFigure, Main_Interval, PresentValue, LifeSpan, Company
+FROM            ASSETSVIEW</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="InitialCost" DataSetColumn="InitialCost" />
+              <Mapping SourceColumn="Category" DataSetColumn="Category" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="SerialNo" DataSetColumn="SerialNo" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="PurchasedDate" DataSetColumn="PurchasedDate" />
+              <Mapping SourceColumn="AssetAccountNo" DataSetColumn="AssetAccountNo" />
+              <Mapping SourceColumn="MaintenanceFigure" DataSetColumn="MaintenanceFigure" />
+              <Mapping SourceColumn="Main_Interval" DataSetColumn="Main_Interval" />
+              <Mapping SourceColumn="PresentValue" DataSetColumn="PresentValue" />
+              <Mapping SourceColumn="LifeSpan" DataSetColumn="LifeSpan" />
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AssetsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AssetsDataSet" msprop:Generator_UserDSName="AssetsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ASSETSVIEW" msprop:Generator_TableClassName="ASSETSVIEWDataTable" msprop:Generator_TableVarName="tableASSETSVIEW" msprop:Generator_TablePropName="ASSETSVIEW" msprop:Generator_RowDeletingName="ASSETSVIEWRowDeleting" msprop:Generator_RowChangingName="ASSETSVIEWRowChanging" msprop:Generator_RowEvHandlerName="ASSETSVIEWRowChangeEventHandler" msprop:Generator_RowDeletedName="ASSETSVIEWRowDeleted" msprop:Generator_UserTableName="ASSETSVIEW" msprop:Generator_RowChangedName="ASSETSVIEWRowChanged" msprop:Generator_RowEvArgName="ASSETSVIEWRowChangeEvent" msprop:Generator_RowClassName="ASSETSVIEWRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InitialCost" msprop:Generator_ColumnVarNameInTable="columnInitialCost" msprop:Generator_ColumnPropNameInRow="InitialCost" msprop:Generator_ColumnPropNameInTable="InitialCostColumn" msprop:Generator_UserColumnName="InitialCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SerialNo" msprop:Generator_ColumnVarNameInTable="columnSerialNo" msprop:Generator_ColumnPropNameInRow="SerialNo" msprop:Generator_ColumnPropNameInTable="SerialNoColumn" msprop:Generator_UserColumnName="SerialNo" type="xs:long" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchasedDate" msprop:Generator_ColumnVarNameInTable="columnPurchasedDate" msprop:Generator_ColumnPropNameInRow="PurchasedDate" msprop:Generator_ColumnPropNameInTable="PurchasedDateColumn" msprop:Generator_UserColumnName="PurchasedDate" type="xs:dateTime" />
+              <xs:element name="AssetAccountNo" msprop:Generator_ColumnVarNameInTable="columnAssetAccountNo" msprop:Generator_ColumnPropNameInRow="AssetAccountNo" msprop:Generator_ColumnPropNameInTable="AssetAccountNoColumn" msprop:Generator_UserColumnName="AssetAccountNo" type="xs:long" />
+              <xs:element name="MaintenanceFigure" msprop:Generator_ColumnVarNameInTable="columnMaintenanceFigure" msprop:Generator_ColumnPropNameInRow="MaintenanceFigure" msprop:Generator_ColumnPropNameInTable="MaintenanceFigureColumn" msprop:Generator_UserColumnName="MaintenanceFigure" type="xs:int" minOccurs="0" />
+              <xs:element name="Main_Interval" msprop:Generator_ColumnVarNameInTable="columnMain_Interval" msprop:Generator_ColumnPropNameInRow="Main_Interval" msprop:Generator_ColumnPropNameInTable="Main_IntervalColumn" msprop:Generator_UserColumnName="Main_Interval" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PresentValue" msprop:Generator_ColumnVarNameInTable="columnPresentValue" msprop:Generator_ColumnPropNameInRow="PresentValue" msprop:Generator_ColumnPropNameInTable="PresentValueColumn" msprop:Generator_UserColumnName="PresentValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LifeSpan" msprop:Generator_ColumnVarNameInTable="columnLifeSpan" msprop:Generator_ColumnPropNameInRow="LifeSpan" msprop:Generator_ColumnPropNameInTable="LifeSpanColumn" msprop:Generator_UserColumnName="LifeSpan" type="xs:int" minOccurs="0" />
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

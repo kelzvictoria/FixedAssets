@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AssetDeprDataSet" targetNamespace="http://tempuri.org/AssetDeprDataSet.xsd" xmlns:mstns="http://tempuri.org/AssetDeprDataSet.xsd" xmlns="http://tempuri.org/AssetDeprDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="FAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.FAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AssetDeprViewTableAdapter" GeneratorDataComponentClassName="AssetDeprViewTableAdapter" Name="AssetDeprView" UserDataComponentName="AssetDeprViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FAConnectionString (Web.config)" DbObjectName="[aspnet-ADI_FORMS-20190421120836].dbo.AssetDeprView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT AssetDeprView.* FROM AssetDeprView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="InitialCost" DataSetColumn="InitialCost" />
+              <Mapping SourceColumn="PresentValue" DataSetColumn="PresentValue" />
+              <Mapping SourceColumn="Interval" DataSetColumn="Interval" />
+              <Mapping SourceColumn="Residual" DataSetColumn="Residual" />
+              <Mapping SourceColumn="AnnualDeprAmount" DataSetColumn="AnnualDeprAmount" />
+              <Mapping SourceColumn="DeprCommenced" DataSetColumn="DeprCommenced" />
+              <Mapping SourceColumn="DeprEndDate" DataSetColumn="DeprEndDate" />
+              <Mapping SourceColumn="DeprMethod" DataSetColumn="DeprMethod" />
+              <Mapping SourceColumn="DepreciationRate" DataSetColumn="DepreciationRate" />
+              <Mapping SourceColumn="LastDeprMonth" DataSetColumn="LastDeprMonth" />
+              <Mapping SourceColumn="LastDeprYear" DataSetColumn="LastDeprYear" />
+              <Mapping SourceColumn="LastDeprAmt" DataSetColumn="LastDeprAmt" />
+              <Mapping SourceColumn="LastDeprDate" DataSetColumn="LastDeprDate" />
+              <Mapping SourceColumn="DeprYTD" DataSetColumn="DeprYTD" />
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AssetDeprDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AssetDeprDataSet" msprop:Generator_UserDSName="AssetDeprDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AssetDeprView" msprop:Generator_TableClassName="AssetDeprViewDataTable" msprop:Generator_TableVarName="tableAssetDeprView" msprop:Generator_TablePropName="AssetDeprView" msprop:Generator_RowDeletingName="AssetDeprViewRowDeleting" msprop:Generator_RowChangingName="AssetDeprViewRowChanging" msprop:Generator_RowEvHandlerName="AssetDeprViewRowChangeEventHandler" msprop:Generator_RowDeletedName="AssetDeprViewRowDeleted" msprop:Generator_UserTableName="AssetDeprView" msprop:Generator_RowChangedName="AssetDeprViewRowChanged" msprop:Generator_RowEvArgName="AssetDeprViewRowChangeEvent" msprop:Generator_RowClassName="AssetDeprViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InitialCost" msprop:Generator_ColumnVarNameInTable="columnInitialCost" msprop:Generator_ColumnPropNameInRow="InitialCost" msprop:Generator_ColumnPropNameInTable="InitialCostColumn" msprop:Generator_UserColumnName="InitialCost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PresentValue" msprop:Generator_ColumnVarNameInTable="columnPresentValue" msprop:Generator_ColumnPropNameInRow="PresentValue" msprop:Generator_ColumnPropNameInTable="PresentValueColumn" msprop:Generator_UserColumnName="PresentValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Interval" msprop:Generator_ColumnVarNameInTable="columnInterval" msprop:Generator_ColumnPropNameInRow="Interval" msprop:Generator_ColumnPropNameInTable="IntervalColumn" msprop:Generator_UserColumnName="Interval" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Residual" msprop:Generator_ColumnVarNameInTable="columnResidual" msprop:Generator_ColumnPropNameInRow="Residual" msprop:Generator_ColumnPropNameInTable="ResidualColumn" msprop:Generator_UserColumnName="Residual" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AnnualDeprAmount" msprop:Generator_ColumnVarNameInTable="columnAnnualDeprAmount" msprop:Generator_ColumnPropNameInRow="AnnualDeprAmount" msprop:Generator_ColumnPropNameInTable="AnnualDeprAmountColumn" msprop:Generator_UserColumnName="AnnualDeprAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DeprCommenced" msprop:Generator_ColumnVarNameInTable="columnDeprCommenced" msprop:Generator_ColumnPropNameInRow="DeprCommenced" msprop:Generator_ColumnPropNameInTable="DeprCommencedColumn" msprop:Generator_UserColumnName="DeprCommenced" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeprEndDate" msprop:Generator_ColumnVarNameInTable="columnDeprEndDate" msprop:Generator_ColumnPropNameInRow="DeprEndDate" msprop:Generator_ColumnPropNameInTable="DeprEndDateColumn" msprop:Generator_UserColumnName="DeprEndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeprMethod" msprop:Generator_ColumnVarNameInTable="columnDeprMethod" msprop:Generator_ColumnPropNameInRow="DeprMethod" msprop:Generator_ColumnPropNameInTable="DeprMethodColumn" msprop:Generator_UserColumnName="DeprMethod" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepreciationRate" msprop:Generator_ColumnVarNameInTable="columnDepreciationRate" msprop:Generator_ColumnPropNameInRow="DepreciationRate" msprop:Generator_ColumnPropNameInTable="DepreciationRateColumn" msprop:Generator_UserColumnName="DepreciationRate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LastDeprMonth" msprop:Generator_ColumnVarNameInTable="columnLastDeprMonth" msprop:Generator_ColumnPropNameInRow="LastDeprMonth" msprop:Generator_ColumnPropNameInTable="LastDeprMonthColumn" msprop:Generator_UserColumnName="LastDeprMonth" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastDeprYear" msprop:Generator_ColumnVarNameInTable="columnLastDeprYear" msprop:Generator_ColumnPropNameInRow="LastDeprYear" msprop:Generator_ColumnPropNameInTable="LastDeprYearColumn" msprop:Generator_UserColumnName="LastDeprYear" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LastDeprAmt" msprop:Generator_ColumnVarNameInTable="columnLastDeprAmt" msprop:Generator_ColumnPropNameInRow="LastDeprAmt" msprop:Generator_ColumnPropNameInTable="LastDeprAmtColumn" msprop:Generator_UserColumnName="LastDeprAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LastDeprDate" msprop:Generator_ColumnVarNameInTable="columnLastDeprDate" msprop:Generator_ColumnPropNameInRow="LastDeprDate" msprop:Generator_ColumnPropNameInTable="LastDeprDateColumn" msprop:Generator_UserColumnName="LastDeprDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeprYTD" msprop:Generator_ColumnVarNameInTable="columnDeprYTD" msprop:Generator_ColumnPropNameInRow="DeprYTD" msprop:Generator_ColumnPropNameInTable="DeprYTDColumn" msprop:Generator_UserColumnName="DeprYTD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

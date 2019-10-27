@@ -1,0 +1,161 @@
+﻿@model ADI_FORMS.Models.Company
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Company</h4>
+        <hr />
+        <dl class="dl-horizontal">
+           
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RCNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RCNumber)
+            </dd>
+            <dt>
+                Branch
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Branch.Name)
+            </dd>
+
+            <dt>
+                Grade
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Grade.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TaxReference)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaxReference)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NPSCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NPSCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentYear)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CurrentYear)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CurrentMonth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CurrentMonth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BudgetedStaff)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BudgetedStaff)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BudgetedSalary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BudgetedSalary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UnionDuePercent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnionDuePercent)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UnionDueAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnionDueAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MidMonthPercent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MidMonthPercent)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AnnualLeavePay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AnnualLeavePay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MidMonthAmt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MidMonthAmt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LargeCompanyName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LargeCompanyName)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+    }
+    </div>
+</div>

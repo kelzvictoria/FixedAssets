@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsMaintenanceDetails>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Asset Maintenance Details</h2>
+    @Html.ActionLink("New Record", "MaintenanceDetails", "AMD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+
+    <table id="amds" class="table" >
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixedAsset.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Maint_Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaintenanceSupervisor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    DELETE
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/lib")
+    <script>
+        $(document).ready(function () {
+            var table = $("#amds").DataTable({
+                ajax: {
+                    url: "/api/amd/",
+                    dataSrc: ""
+                },
+
+                columns: [
+                    {
+                        data: "fixedAsset.description",
+                        render: function (data, type, amd) {
+                            return "<a href='/AMD/edit/" + amd.id + "'>" + amd.fixedAsset.description + "</a>";
+                        }
+                    },
+                    {
+                        data: "transactionDate"
+                    },
+                    {
+                        data: "maint_Description"
+                    },
+                    {
+                        data: "maintenanceSupervisor"
+                    },
+                    {
+                        data: "amount"
+                    },
+                    {
+                        data: "gL_Credit",
+                        render: function (data, type, amd) {
+                            return "<a href='/AMD/delete/" + amd.id + "'>DELETE" + "</a>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>    
+}

@@ -1,0 +1,131 @@
+﻿@model ADI_FORMS.ViewModels.EndOfYearViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "EOY"))
+{
+    @Html.Partial("_BreadCrumb")
+    <section>
+        <!-- </div>  -->
+        <div class="container panel-body">
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-12">
+                    <div class="row row-sm-offset">
+                        <div class="col-sm-3 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.MonthsId)
+                                @Html.DropDownListFor(m => m.EndOfYear.MonthsId, new SelectList(Model.Month, "Id", "Name"), "Select Month", new { @class = "form-control dro" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.MonthsId)
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.FinancialYear)
+                                @Html.TextBoxFor(m => m.EndOfYear.FinancialYear, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.FinancialYear)
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.FinancialPeriod)
+                                @Html.TextBoxFor(m => m.EndOfYear.FinancialPeriod, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.FinancialPeriod)
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.File)
+                                @Html.TextBoxFor(m => m.EndOfYear.File, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.File)
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.RecordNo)
+                                @Html.TextBoxFor(m => m.EndOfYear.RecordNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.RecordNo)
+                            </div>
+                        </div>
+                        <div class="col-sm-3 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EndOfYear.NoOfRecords)
+                                @Html.TextBoxFor(m => m.EndOfYear.NoOfRecords, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.EndOfYear.NoOfRecords)
+                            </div>
+                        </div>
+
+                        <div class="col-md-11 multi-horizontal" data-for="address" style="margin-left:40px;">
+                            <div class="form-group">
+                                <label class="form-control-label mbr-fonts-style display-7" for="address-form1-1">Information</label>
+                                <textarea type="text" class="form-control" name="address" data-form-field="Address" id="address-form1-1" style="height:150px;"></textarea>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-lg-12 form-group">
+                            <div class="col-md-2 multi-horizontal" style="margin-left:200px;">
+                                <div class="form-group">
+
+                                    @Html.HiddenFor(m => m.EndOfYear.Id)
+                                    <button id="savebtn" type="submit" class="btn btn-info .js-save">Start</button>
+
+                                </div>
+                            </div>
+                            <div class="col-md-1 multi-horizontal">
+                                <div class="form-group">
+                                    <button id="delbtn" class='btn btn-info js-delete' data-asset-id=" + data + ">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="js/jquery.js">
+    </script>
+    <script src="js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript" src="js/hover-dropdown.js">
+    </script>
+    <script defer src="js/jquery.flexslider.js">
+    </script>
+    <script type="text/javascript" src="assets/bxslider/jquery.bxslider.js">
+    </script>
+
+    <script src="js/jquery.easing.min.js">
+    </script>
+    <script src="js/link-hover.js">
+    </script>
+
+
+    <!--common script for all pages-->
+    <script src="js/common-scripts.js">
+    </script>
+
+
+
+    <script src="js/wow.min.js">
+    </script>
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+
+}
+

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ADI_FORMS.Models.AssetsTransferData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Asset Transfer Information</h2>
+    @Html.ActionLink("New Record", "TransferData", "ATD", null, new { @class = "btn btn-info", @style = "margin-bottom:10px;" })
+    <table class="table" id="atds">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixedAsset.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NewLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NewCompany)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NewBranch)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransferDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/lib")
+    <script>
+    $(document).ready(function () {
+        var table = $("#atds").DataTable({
+            ajax: {
+                url: "/api/assetstransferdatas",
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "fixedAsset.description",
+                    render: function (data, type, atd) {
+                        return "<a href='/atd/edit/" + atd.id + "'>" + atd.fixedAsset.description + "</a>";
+                    }
+                },
+                {
+                    data: "newLocation"
+                },
+                {
+                    data: "newCompany"
+                },
+                {
+                    data: "newBranch"
+                },
+                {
+                    data: "transferDate"
+                },
+                {
+                    data: "id",
+                    render: function (data, type, atd) {
+                        return "<a href='/atd/delete/" + atd.id + "'>Delete" + "</a>";
+                    }
+                }
+            ]
+        });
+    });
+    </script>
+}

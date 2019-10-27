@@ -1,0 +1,222 @@
+﻿
+@model ADI_FORMS.ViewModels.AssetsValuationDetailViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "AVD"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container">
+        <div class="panel-body">
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-12">
+                    <div class="row row-sm-offset">
+                        @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FixedAssetId)
+                                @Html.DropDownListFor(m => m.FixedAssetId, new SelectList(Model.FixedAssets, "Id", "Description"), "Select Asset", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                <label class="form-control-label">Last Val. Date</label>
+                                <input type="text" class="form-control" name="" id="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Eff_Date)
+                                @Html.TextBoxFor(m => m.Eff_Date, "{0:d MMM yyyy}", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.DepreciationMTDId)
+                                @Html.DropDownListFor(m => m.DepreciationMTDId, new SelectList(Model.DepreciationMTDs, "Id", "Name"), "Select method", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewLifeSpan)
+                                @Html.TextBoxFor(m => m.NewLifeSpan, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewResidual)
+                                @Html.TextBoxFor(m => m.NewResidual, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewDeprStartDate)
+                                @Html.TextBoxFor(m => m.NewDeprStartDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewDeprRate)
+                                @Html.TextBoxFor(m => m.NewDeprRate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FirstSalesValue)
+                                @Html.TextBoxFor(m => m.FirstSalesValue, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewDeprToDate)
+                                @Html.TextBoxFor(m => m.NewDeprToDate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewDeprYearToDate)
+                                @Html.TextBoxFor(m => m.NewDeprYearToDate, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.NewDeprAmount)
+                                @Html.TextBoxFor(m => m.NewDeprAmount, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 multi-horizontal">
+                            <div class="form-group">
+
+                                @Html.HiddenFor(m => m.Id)
+                                <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                            </div>
+                        </div>
+                        <br />
+                        @*<div id="addEditUser" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Registered Assets</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table id="assetslookup" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Asset Description</th>
+                                                    <th>Purchased Date</th>
+                                                    <th>Cost</th>
+                                                    <th>Registered Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                        @**<div id="valRef" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Registered Assets</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table id="Vallookup" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Asset Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var table = $("#vallookup").DataTable(
+                 {
+                     ajax: {
+                         url: "/api/fa",
+                         dataSrc: ""
+                     },
+
+                     columns: [
+                         {
+                             data: "fixedAsset.description",
+                             render: function (data, type, fixedasset) {
+                                 return "<a href = '/avd/edit/" + fixedasset.id + "'>" + fixedasset.description + "</a>";
+                             }
+                         }
+                     ]
+                 });
+        });
+    </script>
+    <script>
+    $(document).ready(function () {
+        var table = $("#assetslookup").DataTable(
+             {
+                 ajax: {
+                     url: "/api/fa",
+                     dataSrc: ""
+                 },
+
+                 columns: [
+                     {
+                         data: "description",
+                         render: function (data, type, fixedasset) {
+                             return "<a href = '/avd/assets/" + fixedasset.id + "'>" + fixedasset.description + "</a>";
+                         }
+                     },
+
+                     {
+                         data: "category.name"
+
+                     },
+                     {
+                         data: "location.name"
+
+                     },
+                     {
+                         data: "branch.name"
+                     }
+                 ]
+             });
+    });
+    </script>
+}
+
+

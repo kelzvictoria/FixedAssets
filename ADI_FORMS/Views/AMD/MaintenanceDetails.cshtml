@@ -1,0 +1,103 @@
+﻿@model ADI_FORMS.ViewModels.AssetsMaintenanceViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "AMD"))
+{
+    @Html.Partial("_BreadCrumb")
+    <div class="container">
+        <div class="panel-body">
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-12">
+                    <div class="row row-sm-offset">
+                        @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FixedAssetId)
+                                @Html.DropDownListFor(m => m.FixedAssetId, new SelectList(Model.FixedAssets, "Id", "Description"), "Select Asset", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Maint_Description)
+                                @Html.TextBoxFor(m => m.Maint_Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Maint_Description)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TransactionDate)
+                                @Html.TextBoxFor(m => m.TransactionDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.TransactionDate)
+                            </div>
+                        </div>
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Amount)
+                                @Html.TextBoxFor(m => m.Amount, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Amount)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.MaintenanceSupervisor)
+                                @Html.TextBoxFor(m => m.MaintenanceSupervisor, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MaintenanceSupervisor)
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.GLDebit)
+                                @Html.TextBoxFor(m => m.GLDebit, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.GLDebit)
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 multi-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.GLCredit)
+                                @Html.TextBoxFor(m => m.GLCredit, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.GLCredit)
+                            </div>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="form-group">
+
+                                @Html.HiddenFor(m => m.Id)
+                                <button id="savebtn" type="submit" class="btn btn-info .js-save">Save</button>
+
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/lib")
+
+    <script>
+        wow = new WOW(
+          {
+              boxClass: 'wow',      // default
+              animateClass: 'animated', // default
+              offset: 0          // default
+          }
+        )
+        wow.init();
+    </script>
+
+
+    
+}
